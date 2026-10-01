@@ -1,0 +1,1290 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#F5821F">
+<meta name="format-detection" content="telephone=no">
+<link rel="icon" href="assets/favicon.png">
+<title>AIGC 视觉奇观开头实操手册 · 马哥赢创</title>
+<link rel="preconnect" href="https://fonts.googleapis.cn" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.cn" crossorigin>
+<link rel="stylesheet" media="print" onload="this.media=&#39;all&#39;" href="https://fonts.googleapis.cn/css2?family=ZCOOL+QingKe+HuangYou&family=Noto+Sans+SC:wght@400;500;700;900&family=Space+Grotesk:wght@500;700&display=swap&display=swap">
+<link rel="stylesheet" href="assets/mage-manual.css">
+<style>
+  /* 第二册微调：提示词块更宽，附录折叠默认收起 */
+  .fbox pre{font-size:12.6px}
+</style>
+</head>
+<body data-book="qiguan">
+<div id="pbar"></div>
+
+<div class="shell">
+
+<aside class="side">
+  <div class="brandbox">
+    <img src="assets/logo.png" alt="马哥赢创 logo">
+    <div><div class="bn">马哥赢创</div><div class="bs">想法落地 · 价值倍增</div></div>
+  </div>
+  <div class="ringwrap">
+    <div class="ring"><b>0%</b></div>
+    <div class="rt"><b>阅读进度</b>提示词可直接一键复制</div>
+  </div>
+  <ul class="toc">
+    <li><a href="#c0"><i>00</i>三个认知</a></li>
+    <li><a href="#c1"><i>01</i>5秒量化配方</a></li>
+    <li><a href="#c2"><i>02</i>六类视觉奇观</a></li>
+    <li><a href="#c3"><i>03</i>避短清单</a></li>
+    <li><a href="#c4"><i>04</i>六步 SOP</a></li>
+    <li><a href="#c5"><i>05</i>提示词实操</a></li>
+    <li><a href="#c6"><i>06</i>工具与成本</a></li>
+    <li><a href="#c7"><i>07</i>抽卡止损</a></li>
+    <li><a href="#c8"><i>08</i>减 AI 感</a></li>
+    <li><a href="#c9"><i>09</i>自查与验证</a></li>
+    <li><a href="#c10"><i>10</i>知识类嫁接</a></li>
+    <li><a href="#c11"><i>11</i>速查卡·自测</a></li>
+    <li><a href="#c12"><i>12</i>附录·提示词</a></li>
+    <li><a href="#c13"><i>13</i>原文出处</a></li>
+  </ul>
+  <div class="sidefoot">马哥赢创 · 内部学习手册<br>素材源：生财有术 AI 视频实战派 + 官方手册<br>整理 2026-09-30</div>
+</aside>
+
+<main class="main">
+
+<header class="hero rv">
+  <div class="in">
+    <img class="logo" src="assets/logo.png" alt="马哥赢创">
+    <div class="tx">
+      <span class="kicker">马哥赢创 · 方法论手册 第二册</span>
+      <h1>AIGC 视觉奇观<em>开头实操手册</em></h1>
+      <p class="sub">用 AI 生成"拉住 5 秒"的爆款开头。从视觉奇观类型选择、首帧图制作、提示词铁律，到模型选型、抽卡止损、减 AI 感设计，一条链路讲透。附 3 个可直接复制的核心提示词。</p>
+      <div class="chips">
+        <span class="chip hot">目标：前 3-5 秒拉停留</span>
+        <span class="chip">12 位 AI 视频实战派</span>
+        <span class="chip">官方手册全 7 关</span>
+        <span class="chip">3 个可复制提示词</span>
+        <span class="chip">6 类奇观配方</span>
+      </div>
+    </div>
+    <div class="stk stk-wow" title="马哥"></div>
+  </div>
+</header>
+
+<section class="map60 rv">
+  <div class="mh"><h3>60 秒速览</h3><span>点任意一格直达</span></div>
+  <div class="mapgrid">
+    <a class="mapcell" href="#c0"><i>00</i><b>三个前置认知</b><s>奇观是AI独有优势 / 提示词只占20% / 奇观服务信息</s></a>
+    <a class="mapcell" href="#c1"><i>01</i><b>5秒量化配方</b><s>3秒内第一个爽点；每3-5秒一个视觉变化</s></a>
+    <a class="mapcell" href="#c2"><i>02</i><b>六类奇观</b><s>尺寸夸张 / 奇观前置 / 画风突变 / 变身 / 流体 / 宏大场景</s></a>
+    <a class="mapcell" href="#c3"><i>03</i><b>避短清单</b><s>长对话、手部特写、多人互动——开头绝对不碰</s></a>
+    <a class="mapcell" href="#c4"><i>04</i><b>六步 SOP</b><s>母题→拆镜→首帧图→图生视频→精调→数据验证</s></a>
+    <a class="mapcell" href="#c5"><i>05</i><b>提示词实操</b><s>五层结构、模糊vs精确、情绪具象化十配方</s></a>
+    <a class="mapcell" href="#c6"><i>06</i><b>工具与成本</b><s>开头用贵模型中段用便宜模型；720p先测省60%</s></a>
+    <a class="mapcell" href="#c7"><i>07</i><b>抽卡止损</b><s>4-5次出不来就停手；回去改首帧不改提示词</s></a>
+    <a class="mapcell" href="#c8"><i>08</i><b>减 AI 感七招</b><s>面部瑕疵 / 触发动作原因 / 阴天光线 / 生活痕迹</s></a>
+    <a class="mapcell" href="#c9"><i>09</i><b>自查与验证</b><s>AI味六症状 + 一致性/密度/情绪三打分</s></a>
+    <a class="mapcell" href="#c10"><i>10</i><b>知识类嫁接</b><s>概念具象化 / 画风前后对比 / 隐喻容器</s></a>
+    <a class="mapcell" href="#c11"><i>11</i><b>速查卡·自测</b><s>可勾选清单 + 翻转卡</s></a>
+    <a class="mapcell" href="#c12"><i>12</i><b>附录提示词</b><s>参考总表 / 导演提示词v5.1 / 三视图</s></a>
+    <a class="mapcell" href="#c13"><i>13</i><b>原文出处</b><s>12 位圈友 + 官方手册，全部可回溯</s></a>
+  </div>
+</section>
+
+<!-- ============ 00 ============ -->
+<section class="chap rv" id="c0">
+  <div class="chead"><span class="cnum">00</span><h2>先纠正三个认知</h2><div class="stk stk-think"></div></div>
+  <p class="lead">这三条不先掰过来，后面所有技巧都是白做。尤其第二条——它决定你该把时间花在哪。</p>
+
+  <h3>认知一：视觉奇观是 AIGC 独有的优势，不是可选项</h3>
+  <div class="q key"><p><strong>方法五：视觉奇观前置</strong>——这是 AIGC 视频独有的微创新：把故事里最震撼的画面从高潮位置提到开头三秒。</p>
+    <p>公式：把故事中【最壮观场面】做成首帧，用倒叙或悬念结构引出故事。例：《007》冷开场传统、《进击的巨人》第一集城墙陷落直接开场。</p>
+    <p><strong>逻辑：AIGC 视频的生死在前 3 秒。你的最强画面（AI 最擅长的宏大场面）必须放在开头当钩子，而不是按叙事顺序放在后面。</strong></p>
+    <span class="who">—— 圈友11 · 传媒专业出身 / 内容平台深耕 7 年 / 带过近千名圈友</span></div>
+  <div class="tw"><table>
+    <thead><tr><th style="width:50%">扬长（AI 擅长的要放大）</th><th>避短（AI 拉胯的要绕开）</th></tr></thead>
+    <tbody><tr>
+      <td><strong>视觉奇观</strong>：异世界、变身、宏大场景、超现实画面——真人拍摄成本极高，<strong>AI 生成成本几乎为零，这是 AIGC 视频最大的优势</strong><br><br><strong>氛围渲染</strong>：光影、色彩、质感的塑造能力远超普通人拍摄水平<br><br><strong>风格化</strong>：任何画风都能生成，画风本身就是内容卖点</td>
+      <td><strong>长对话</strong>：口型同步还是弱项，能少则少<br><br><strong>复杂手部动作</strong>：手部特写容易崩，少给<br><br><strong>多人复杂互动</strong>：三人以上肢体交错容易乱，人群戏用远景<br><br><strong>连续逻辑动作</strong>：精细连贯动作容易穿帮，用剪辑跳过</td>
+    </tr></tbody>
+  </table></div>
+  <div class="q tip"><p><strong>改编铁律（选故事时就要问）：</strong>"这个故事的核心场面是不是 AI 擅长的？一个'两人密室对话推理'为核心的故事，无论多精彩都<strong>不适合 AIGC</strong>；一个'少年骑龙穿越火烧云'为核心的故事，<strong>AI 一出手就是电影级画面</strong>。"</p></div>
+
+  <h3>认知二：能力权重要重新分配 —— 提示词只占 20%</h3>
+  <p>2026 年 AI 视频的分水岭不是画质，是<strong>可控性</strong>：Seedance 2.0 支持最多 12 个参考素材（9 图 + 3 视频）、创意对齐度超 92%；可灵 Motion Control 上传参考视频迁移动作；Veo3/Sora2 原生音画同步。AI 视频正在从"抽卡"变成"编排"。</p>
+  <div class="cards" style="grid-template-columns:repeat(auto-fit,minmax(180px,1fr))">
+    <div class="card" style="text-align:center"><span class="tag tg-sky">提示词技巧</span><h4 style="font-family:var(--disp);font-size:34px;font-weight:400;margin:4px 0">20%</h4><p style="margin-bottom:0;font-size:12.8px">基本功，可让 AI 先出你再改</p></div>
+    <div class="card" style="text-align:center;border-color:#FFD9B4"><span class="tag tg-brand">素材准备能力</span><h4 style="font-family:var(--disp);font-size:34px;font-weight:400;margin:4px 0;color:var(--brand-deep)">50%</h4><p style="margin-bottom:0;font-size:12.8px">构图 / 光影 / 一致性 —— <strong>新的壁垒</strong></p></div>
+    <div class="card" style="text-align:center"><span class="tag tg-mint">故事与节奏</span><h4 style="font-family:var(--disp);font-size:34px;font-weight:400;margin:4px 0">30%</h4><p style="margin-bottom:0;font-size:12.8px">永远的壁垒</p></div>
+  </div>
+  <div class="q key"><p>"<strong>会准备素材的人，比会写提示词的人更稀缺。</strong>大部分新手还在卷提示词的措辞，但真正决定成片质量的是：你的首帧图构图好不好、三视图够不够统一、光影设定有没有提前定、场景资产是不是成套的。这些更偏向传统剧组里的'<strong>美术指导</strong>'，而不是编剧。"</p></div>
+  <div class="banner"><div class="big">合格标准（记住这句）：<br>你的片子首帧图单独拿出来，当一张海报能成立的程度。做不到就不要生成。</div></div>
+
+  <h4>冰山模型：解释 90% 的"画面很精致但没人看"</h4>
+  <div class="pit">
+    <div class="ph good">水面上 20% · 观众一眼看见</div><div class="ph bad">水面下 80% · 看不见但能感觉到</div>
+    <div>构图、光影、调色、角色一致性、剪辑、声音<br><span style="color:var(--ink-3);font-size:12.6px">决定看完之后值不值得点赞</span></div>
+    <div><strong>选题、故事、情绪、角色</strong><br><span style="color:var(--ink-3);font-size:12.6px">决定观众是否看下去</span></div>
+  </div>
+  <div class="q warn"><p>"新手的时间分配通常是反的——80% 的时间花在水面上（研究调色、升分辨率、镜头酷炫），20% 花在水下（随便想个故事就开干）。结果就是：<strong>技术越来越熟练，片子越来越精致，但是没人看。</strong>"</p></div>
+  <div class="card"><h4 style="margin-top:0">自检问题（现在就可以问自己）</h4><p style="margin-bottom:0">你最近做的一条片子，<strong>如果去掉所有画面、只留旁白讲这个故事，别人还愿意听完吗？</strong><br><span style="color:var(--ink-3);font-size:13.6px">如果答案是"不愿意"，问题在冰山之下，再怎么抢救画面也救不了。</span></p></div>
+
+  <h3>认知三：视觉奇观必须"服务信息"，不是"取代信息"</h3>
+  <div class="q"><p>"<strong>高质感视频，不是让观众看不出它由 AI 制作，而是即使知道它由 AI 制作，依然觉得内容好看、情绪有共鸣、角色让人记得住，愿意继续看完、点赞和分享。</strong>"</p><span class="who">—— 官方航海手册《AI 高质感视频-爆款短片实战》· 第一关</span></div>
+  <div class="tw"><table>
+    <thead><tr><th style="width:100px">维度</th><th>自检问题</th></tr></thead>
+    <tbody>
+      <tr><td><strong>① 选题</strong></td><td>选题本身值得讲吗？—— <strong>好的制作救不了一个没有吸引力的选题</strong></td></tr>
+      <tr><td><strong>② 故事</strong></td><td>开头最好留下一个问题，中间不断提供新信息，结尾完成反转、收束或情绪释放</td></tr>
+      <tr><td><strong>③ 情绪</strong></td><td>情绪曲线：<strong>建立期待 → 制造冲突 → 推高情绪 → 反转或释放</strong></td></tr>
+      <tr><td><strong>④ 角色</strong></td><td>有没有一个让人记住的角色？</td></tr>
+      <tr><td><strong>⑤ 观感</strong></td><td><strong>视听制作是放大器，但不是故事本身</strong></td></tr>
+    </tbody>
+  </table></div>
+  <div class="q tip"><p>"高质感视频首先不是'画面有多电影感'，而是：<strong>开头让人产生疑问，中间让情绪不断变化，最后留下一个让人记得住的角色或一句话。</strong>"</p></div>
+
+  <div class="say"><div class="stk stk-think"></div><div class="bubble">先想清楚"这条片子要让人记住什么"，再打开生成工具。<b>顺序反了，积分就白烧了</b>。<span class="who">马哥说</span></div></div>
+
+  <div class="flips">
+    <div class="fh2">学完自测</div>
+    <button class="flip"><span class="in"><span class="f q">提示词、素材准备、故事节奏，三者权重各是多少？</span><span class="f a">20% / <strong>50%</strong> / 30%。素材准备（首帧图、三视图、光影、场景资产）才是新壁垒。</span></span></button>
+    <button class="flip"><span class="in"><span class="f q">首帧图的合格标准是什么？</span><span class="f a"><strong>单独拿出来当一张海报能成立。</strong>做不到就不要生成。</span></span></button>
+  </div>
+</section>
+
+<!-- ============ 01 ============ -->
+<section class="chap rv" id="c1">
+  <div class="chead"><span class="cnum">01</span><h2>5 秒开头的量化配方</h2><div class="stk stk-code"></div></div>
+  <p class="lead">这些数字都是圈友拉片、跑数据得出的，不是拍脑袋。</p>
+  <div class="tw"><table>
+    <thead><tr><th>维度</th><th>量化标准</th><th>来源</th></tr></thead>
+    <tbody>
+      <tr><td><strong>第一个爽点/悬念</strong></td><td>必须在<strong>黄金 3 秒内</strong>出现</td><td>圈友11</td></tr>
+      <tr><td><strong>后续爽点密度</strong></td><td>每 <strong>10-15 秒</strong>一个爽点，结尾一个反转或释放</td><td>圈友11</td></tr>
+      <tr><td><strong>视觉变化频率</strong></td><td>每 <strong>3-5 秒</strong>至少一个视觉变化（爆款共同点）</td><td>圈友11（节奏表拉片）</td></tr>
+      <tr><td><strong>钩子/冲突/反转</strong></td><td><strong>三秒一个钩子，十秒一个冲突，三十秒一个小反转</strong></td><td>圈友11（短剧节奏库）</td></tr>
+      <tr><td><strong>前 3 秒画面密度</strong></td><td>同一场景内<strong>多切换镜头视角和景别</strong> + 更多<strong>动作序列</strong> + 多变<strong>人物表情</strong></td><td>圈友08（爆率 45%）</td></tr>
+      <tr><td><strong>画面基调</strong></td><td>光线<strong>极其充足</strong>、色彩饱和度<strong>极高</strong>、场景<strong>明亮</strong></td><td>圈友14（1.5 亿+播放）</td></tr>
+      <tr><td><strong>优先级排序</strong></td><td><strong>情绪推进 &gt; 逻辑自洽 &gt; 画面细节</strong></td><td>圈友14</td></tr>
+      <tr><td><strong>单镜时长</strong></td><td>关键镜直接拉到 <strong>8-12 秒</strong>；一般镜头 <strong>2-6 秒</strong></td><td>官方手册 / 圈友12</td></tr>
+      <tr><td><strong>60 秒镜头数</strong></td><td>控制在 <strong>8-12 个镜头</strong></td><td>官方手册</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="q key"><p>"一个吸引人的视频，整体的脉络最重要，这决定了观众是否会点赞以及主动分享。但是，<strong>视频的前三秒也极其重要，如果节奏拖沓，没有看点，观众就会划走，那即使视频本身的故事性再好，也只能是被埋没</strong>，非常可惜。</p><p>前三秒，有几个关键点，<strong>第一是信息密度要高</strong>，说白了就是画面要一直有变化，让观众没那么容易动手指划走。<strong>一般前三秒是在同一个场景里，在这个场景中，多切换镜头视角和景别、安排更多的动作序列和多变的人物表情都是可以的。</strong>"</p><span class="who">—— 圈友08 · YouTube 深海圈咨询教练 · 单账号 20+ 视频爆率 45% · 全新小号首条 300 万播</span></div>
+  <div class="q tip"><p><strong>注意这个工程细节：</strong>不是"前 3 秒切三个场景"，而是<strong>在同一场景里多切视角和景别</strong>。既保证信息密度，又保住场景/角色一致性（AI 最难的就是跨场景一致性）。非常实用的折中。</p></div>
+
+  <h3>爽点五种类型（设计第 3 秒那个钩子）</h3>
+  <div class="cards" style="grid-template-columns:repeat(auto-fit,minmax(160px,1fr))">
+    <div class="card" style="padding:15px"><span class="tag tg-rose">打脸</span><p style="margin:0;font-size:13.2px">反派被惩罚。最强即时满足感，天然带"愤怒→释放"杠杆</p></div>
+    <div class="card" style="padding:15px"><span class="tag tg-plum">揭晓</span><p style="margin:0;font-size:13.2px">隐藏身份曝光。配合身份错位母题，AI 做大场面成本为零</p></div>
+    <div class="card" style="padding:15px"><span class="tag tg-butter">逆转</span><p style="margin:0;font-size:13.2px">绝境翻盘。开头放翻盘瞬间（奇观前置），再倒叙</p></div>
+    <div class="card" style="padding:15px"><span class="tag tg-sky">碾压</span><p style="margin:0;font-size:13.2px">实力碾压。尺寸/比例夸张最容易做出碾压感</p></div>
+    <div class="card" style="padding:15px"><span class="tag tg-mint">补偿</span><p style="margin:0;font-size:13.2px">好人得好报。情感类母题，配团圆/遗憾最拿转发</p></div>
+  </div>
+
+  <h3>情绪杠杆强度排序（决定转发率）</h3>
+  <div class="fbox">
+    <div class="fh"><span class="dot"></span>情绪杠杆</div>
+    <pre><span class="hl">愤怒</span>（最易传播） &gt; <span class="hl">惊奇</span> &gt; 好笑 &gt; 感动 &gt; 唏嘘 &gt; 欣赏
+
+<span class="cm">// 视觉奇观天然对应的强情绪是「惊奇」——</span>
+<span class="cm">// 这是 AI 最容易做到的强情绪，也是它相对真人拍摄的最大优势。</span></pre>
+  </div>
+  <div class="q warn"><p>"做选题时问问自己：观众看完这个视频，最强烈的情绪是什么？<strong>必须是'卧槽''气死我了''笑死''看哭了'这种级别的反应。如果最强反应是'还行'，那就重做。</strong>"</p></div>
+</section>
+
+<!-- ============ 02 ============ -->
+<section class="chap rv" id="c2">
+  <div class="chead"><span class="cnum">02</span><h2>六种可直接抄的视觉奇观类型</h2><div class="stk stk-wow"></div></div>
+  <p class="lead">从九种微创新里挑出最适合做开头视觉奇观的六种，按性价比排序。第①种优先试。</p>
+  <div class="cards">
+    <div class="card"><span class="tag tg-rose">① 性价比最高，优先试</span><h4>尺寸 / 比例夸张</h4>
+      <p>公式：把【普通元素】放大/缩小到【极端尺度】</p>
+      <div class="eg"><b>参考</b>《进击的巨人》《蚁人》、一只猫的城市冒险（全片从猫的高度看人类世界）<br><b>为什么性价比最高</b>"AI 生成极端尺度的画面毫无成本，但给观众的视觉冲击完全不同。"<br><b>开头可直接用</b>巨型化的日常物体、微缩视角看世界、人与超大生物同框</div></div>
+    <div class="card"><span class="tag tg-plum">② 结构层，零制作成本</span><h4>视觉奇观前置</h4>
+      <p>公式：把故事中【最壮观场面】做成首帧，用倒叙或悬念结构引出故事</p>
+      <div class="eg"><b>关键操作</b>先做完整个故事的高潮画面，然后<strong>把它挪到第 0 秒当首帧</strong>，正片用倒叙或悬念往回讲。纯结构操作，<strong>不需要额外制作成本</strong>。</div></div>
+    <div class="card"><span class="tag tg-mint">③ AI 的杀手锏</span><h4>画风即叙事</h4>
+      <p>公式：用【画风 A】表现【状态 A】，用【画风 B】表现【状态 B】，两画风切换即叙事</p>
+      <div class="eg"><b>参考</b>《蜘蛛侠：平行宇宙》（多元宇宙=画风切换）、《记忆碎片》（彩色倒叙、黑白正叙）<br><b>为什么是杀手锏</b>"真人视频换画风成本极高，<strong>AI 换画风只要换提示词</strong>。"<br><b>开头可直接用</b>第 0-1 秒水彩/绘本风 → 第 2 秒"啪"切成写实/赛博朋克。<strong>画风突变本身就是最强的视觉钩子</strong>。</div></div>
+    <div class="card"><span class="tag tg-butter">④ 有现成提示词</span><h4>变身 / 形态转换</h4>
+      <p>圈友16（深海圈总教练）实测的三类变身，提示词可直接抄：</p>
+      <div class="eg"><b>小幅度</b>「美丽女生在舞台上进行魔法变装表演，将手上的一只蝴蝶变化出很多很多蝴蝶落在自己的连衣裙上，蝴蝶和裙子融为一体，雾气特效，摄像头旋转」→ 可灵1.6 / pixverse / pika<br><b>一般幅度</b>「女孩抬起手变装，超强雾气特效，超强动态画面，超强变身，摄像头旋转」→ 可灵2.0 / runway / vidu<br><b>大幅度</b>「……女孩转身，散发出星光特效，变身成了一个木棍人……」→ <strong>pixverse 最佳</strong></div></div>
+    <div class="card"><span class="tag tg-sky">⑤ 近两年爆款高发区</span><h4>特殊材质 / 流体特效</h4>
+      <p>圈友16 专门讲的"非牛顿流体"效果，最好的模型是 <strong>pika / pixverse</strong>（官方内置溶解效果）。</p>
+      <div class="eg"><b>提示词一（可灵实测有效）</b>一位老人站在沼泽中央，他痛苦的撕扯和拉伸衣服，逐步的身体拉扯出紫色和红色的非牛顿流体一样的液体，从上至下缓缓流下，逐渐覆盖老人的身体，老人逐步慢慢蹲下，最后液体完全包裹住老人，形成一个球形的不停流动的非牛顿流体。<br><b>提示词二（runway 也能做）</b>舞台上，一位女生正在表演走秀，黄色非牛顿流体从头部逐步流下覆盖全身，形成一个球状。→ <strong>关键是带上"非牛顿流体"这个名词来引导流动</strong></div></div>
+    <div class="card"><span class="tag tg-mint">⑥ AI 的绝对强项</span><h4>宏大场景 / 异世界</h4>
+      <p>官方手册选教学案例时列的爆款特征，可直接当选题筛选器：</p>
+      <div class="eg"><b>爆款内容特征（官方手册原文）</b>"<strong>人物关系简单、情绪反差强、画面容易理解、泪点集中、制作难度适中</strong>，而且非常适合用 AI 工具做成高质感短片。"</div></div>
+  </div>
+
+  <h3>组合技：微创新的乘法</h3>
+  <div class="q"><p><strong>组合原则：一个主方法 + 一个辅助方法，主次分明，两个方法要在不同维度。</strong></p>
+    <p>· 设定置换（改内容）+ 视觉奇观前置（改结构）—— <span class="yes">✅ 可行</span><br>· 设定置换 + 类型嫁接（两个都改内容）—— <span class="no">❌ 容易互相干扰</span></p>
+    <p><strong>组合后用一句话检验：这个视频能不能用一句话讲清楚？能一句话讲清的组合就是好组合。</strong></p></div>
+  <div class="card"><h4 style="margin-top:0">官方推荐的三组组合</h4>
+    <ol style="margin-bottom:0">
+      <li><strong>视觉奇观前置 + 结局改写</strong>（情绪杠杆极强：悲剧改爽剧给补偿感，喜剧改悲剧给唏嘘感）</li>
+      <li><strong>视角翻转 + 画风即叙事</strong>（视角翻转自带话题性，评论区会吵起来，吵起来就有流量）</li>
+      <li><strong>一句话悬念 + 尺寸夸张</strong>（最容易上手，适合新手第一支视频）</li>
+    </ol></div>
+  <div class="q tip"><p><strong>控制变量原则：</strong>"只换一个变量，其余保持原样。<strong>变量换得越多，观众的熟悉感越少，传播力反而下降。观众爱看的是'旧瓶装新酒'。</strong>"<br>爆款公式：爆款 = 熟悉的母题 × 新鲜的设定 × 强情绪 × 高完成度</p></div>
+
+  <div class="say"><div class="stk stk-wow"></div><div class="bubble">六种奇观里我最推荐你先试<b>尺寸夸张</b>和<b>画风突变</b>：成本最低、AI 最稳、冲击最直接。<span class="who">马哥说</span></div></div>
+</section>
+
+<!-- ============ 03 ============ -->
+<section class="chap rv" id="c3">
+  <div class="chead"><span class="cnum">03</span><h2>避短清单：AI 的短板，开头绝对不要碰</h2><div class="stk stk-wow"></div></div>
+  <p class="lead">开头只有 3-5 秒，容错率最低。这五个短板出现在开头，等于自杀。</p>
+  <div class="tw"><table>
+    <thead><tr><th>AI 短板</th><th>为什么会崩</th><th>绕开方法</th></tr></thead>
+    <tbody>
+      <tr><td><strong>长对话</strong></td><td>口型同步还是弱项</td><td>对话能少则少，<strong>改用旁白驱动 + 画面展示</strong>，对话只留最关键一两句</td></tr>
+      <tr><td><strong>复杂手部动作</strong></td><td>手部特写容易崩（六根手指、扭曲）</td><td><strong>少给手部特写</strong>，用中景，或让手在画面外/被物体遮挡</td></tr>
+      <tr><td><strong>多人复杂互动</strong></td><td>三人以上肢体交错容易乱</td><td><strong>人群戏用远景</strong></td></tr>
+      <tr><td><strong>连续逻辑动作</strong></td><td>精细连贯动作容易穿帮</td><td><strong>用剪辑跳过</strong></td></tr>
+      <tr><td><strong>非常规产品结构</strong></td><td>AI 理解物理逻辑会出错</td><td><strong>先做图引导正确的核心动作</strong>，避免多次抽卡</td></tr>
+    </tbody>
+  </table></div>
+  <div class="q key"><p><strong>圈友15 的止损原则（交付近千条 ToB 商单换来的）：</strong>"母片如果工程师<strong>连续尝试 4、5 次还做不出来，那就暂停，不要继续抽卡</strong>，应该回到脚本层面重新优化。<strong>有些镜头短期内就是不适合 AI 做</strong>，比如复杂的人物和产品交互、精细配件替换、强物理逻辑动作。继续抽下去，可能半天就没了。"</p><p>"更合理的做法是<strong>改脚本、换镜头、换模型，或者用实拍兜底</strong>。<strong>这不是放弃，而是项目管理的一部分。</strong>"</p><span class="who">—— 圈友15 · 团队累计交付近 1000 条 AI 商单视频</span></div>
+  <h3>选脚本的四条红线（圈友13，油管实测）</h3>
+  <div class="tw"><table>
+    <thead><tr><th style="width:34px">#</th><th>红线</th><th>说明</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td class="no">未成年人危害的脚本</td><td>油管查得特别严，一旦抓到<strong>直接下掉 YPP，申诉机会都不给</strong>。主角不是非未成年不可就换成成年人形象</td></tr>
+      <tr><td>2</td><td class="no">生理不适 / 恶心 / 擦边</td><td>碰都不要碰</td></tr>
+      <tr><td>3</td><td class="yes">优先选<strong>强画面弱文案</strong>的脚本</td><td>中文翻译成外语，光靠 AI 很难保证准确且达到原效果</td></tr>
+      <tr><td>4</td><td class="yes">选<strong>不受文化差异影响</strong>的脚本</td><td>国内和成绩有关的段子，老外 get 不到那个点</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- ============ 04 ============ -->
+<section class="chap rv" id="c4">
+  <div class="chead"><span class="cnum">04</span><h2>完整实操 SOP（六步）</h2><div class="stk stk-write"></div></div>
+  <p class="lead">综合官方航海手册全 7 关 + 圈友12（7 天 2500 万播放）+ 圈友13（亿播爆款）的实操流程。</p>
+
+  <h3>前置：开工前先建好素材库目录</h3>
+  <div class="fbox">
+    <div class="fh"><span class="dot"></span>素材库目录结构</div>
+    <pre>项目名/
+├── 01_脚本/     故事大纲.md、剧本.md、分镜表.md
+├── 02_角色/     角色A_正面.png、角色A_侧面.png、角色A_背面.png、角色A_表情.png
+├── 03_场景/     场景1_全景.png、场景1_近景.png
+├── 04_道具/     道具1.png
+├── 05_风格/     画风参考1.png、画风参考2.png
+├── <span class="hl">06_首帧/     S01_首帧.png、S02_首帧.png（按镜头编号命名）</span>
+├── 07_生成/     S01_v1.mp4、S01_v2.mp4、S01_最终.mp4
+├── 08_成片/     成片_v1.mp4
+└── <span class="hl">09_日志/     生成日志.md（记录每条用的工具、参数、提示词版本）</span></pre>
+  </div>
+  <div class="q warn"><p>"<strong>09_日志这个目录千万别省</strong>——它是你未来应对平台合规审查（留存 AI 素材生成日志）的凭证，也是你复盘迭代的依据。"</p><p><strong>合规基线（从第一条片子就开始做）：</strong>片头标注 AI 生成标识；保留生成日志；源素材只用公有领域/民间故事/新闻事实，或只借结构不借内容；商单确认所用工具的商用授权。</p></div>
+
+  <div class="steps">
+    <div class="step"><div class="n">1</div><div class="b"><div class="t">定高概念 + 母题</div><div class="d"><strong>产出</strong>：一句话高概念 + 母题标注 + 微创新方法标注。<strong>验收</strong>：拿给三个朋友听，至少两个人表示想看。母题清单：逆袭 / 复仇 / 穿越重生 / 扮猪吃虎 / 奇遇 / 失控 / 团圆遗憾。<span class="no">说不出来母题的故事，大概率做不成爆款。</span></div></div></div>
+    <div class="step"><div class="n">2</div><div class="b"><div class="t">拆开头 3 镜（钩-展-转-收 的"钩"段）</div><div class="d"><strong>0-3 秒「钩」</strong>：最强画面或最强悬念，用全片最壮观的奇观画面当首帧，或一句话悬念直接上字幕。<strong>3-25 秒「展」</strong>：展开核心创意，每 5 秒左右一个视觉变化。<strong>25-50 秒「转」</strong>：推进到转折或冲突顶点。<strong>50-60 秒「收」</strong>：反转、释放或开放式结尾。60 秒控制在 8-12 个镜头。</div></div></div>
+    <div class="step"><div class="n">3</div><div class="b"><div class="t">生成首帧图 ← 最决定成败的一步（占 50% 权重）</div><div class="d">先做<strong>参考总表</strong>（一张图锁死全片角色/道具/场景/关键分镜），再逐镜生成首帧图。详见下方展开与附录 A1。</div></div></div>
+    <div class="step"><div class="n">4</div><div class="b"><div class="t">图生视频（Seedance 2.0 提示词铁律）</div><div class="d">用导演口吻写：镜头从哪开始 → 人物如何动作 → 镜头如何快速切换 → 台词对应什么动作表情 → 情绪如何推进 → 最后停在哪。详见第 5 章与附录 A2。</div></div></div>
+    <div class="step"><div class="n">5</div><div class="b"><div class="t">后期精调</div><div class="d">删冗余 / 调速 / 加音效 / 加特效 / 配 BGM / 加转场 / 智能调色 / 超分。<strong>导出后一定用播放器完整看一遍再发布</strong>（剪映预览会反应不过来）。</div></div></div>
+    <div class="step"><div class="n">6</div><div class="b"><div class="t">数据验证 → 强制做出一个改动决策</div><div class="d">盯三个指标：3 秒完播率 / 完播率 / 转发率。<strong>哪个低就改哪个环节。</strong></div></div></div>
+  </div>
+
+  <h3>第 2 步细化：分镜表的标准字段</h3>
+  <div class="fbox">
+    <div class="fh"><span class="dot"></span>圈友12版分镜表（表头固定 8 字段）</div>
+    <pre>镜号 | 镜头来源 | 镜头类型 | 建议时长 | 画面提示词 | 视听功能 | 配音台词 | 声音/音乐意图
+
+<span class="cm">// 镜头来源只能四选一：</span>
+原片复刻 / 改编替换 / 必要承接 / 原创补强
+
+<span class="cm">// 镜头类型只能选（16 种）：</span>
+空镜 / 环境铺垫 / 人物出场 / 剧情推进 / 冲突 / 反应 / 情绪特写 / 心理侧写
+对峙 / 反转 / 信息揭示 / 关键道具 / 蒙太奇 / 转场 / 长镜头 / 结尾余韵
+
+<span class="cm">// 建议时长：每个镜头 2-6 秒。强冲突、反应特写、蒙太奇可短；空镜、沉默、长镜头、结尾余韵可略长</span></pre>
+  </div>
+  <div class="q tip"><p><strong>视听功能必须写清楚这个镜头的作用</strong>：开场定调 / 制造误会 / 冲突升级 / 心理侧写 / 关系反转 / 情绪留白。这是防止"镜头发呆"（画面在动但没有叙事目的）的最有效手段。</p></div>
+  <div class="q"><p><strong>圈友13的分镜时长经验：</strong>"只给信息的镜头可以短一点，这种镜头就是为了告诉观众一个信息，除此之外别无它用。<strong>给情绪的镜头可以长一点，让情绪表达到位。</strong>"参考基准：<strong>半秒到一秒半</strong>左右一个分镜。</p></div>
+
+  <h3>第 3 步细化：为什么必须先做首帧图</h3>
+  <div class="q key"><p>"剧情视频最怕人物变脸、年龄变错、场景穿帮。<strong>首帧图就是用来锁人物、锁场景、锁情绪的。</strong>……视频模型会以'首帧图'作为画面起点，人物长相、场景环境、服装道具、画风色调都会优先参考这张图。"</p><p>"先生成首帧图，就可以在视频生成前提前检查这些问题，<strong>发现不对可以直接重出图片，不用等整条视频生成完再返工</strong>。"</p><span class="who">—— 官方航海手册《AI 高质感视频》· 第四关</span></div>
+
+  <h4>3.1 先做「参考总表」——一次性锁死全片一致性</h4>
+  <div class="tw"><table>
+    <thead><tr><th style="width:120px">区域</th><th>内容</th><th>关键约束</th></tr></thead>
+    <tbody>
+      <tr><td><strong>⓪ 画风要求</strong></td><td>贯穿全图，从上传的画风参考图提取</td><td>线条/上色/光影/质感/构图气质/色彩倾向。<strong>不能出现画风漂移</strong></td></tr>
+      <tr><td><strong>一、顶部</strong> 角色三视图</td><td>正面 / 侧面 / 背面</td><td>纯白或浅灰背景，统一站立中性姿势，不画剧情动作。服装/发型/体型/年龄感/配色必须清晰稳定</td></tr>
+      <tr><td><strong>二、上中部</strong> 关键道具</td><td>默认 1-3 个，最多 5 个；每个 3-4 个角度</td><td>纯色背景单独展示，附材质色板。<strong>宁可少，不要滥加</strong>。不要做成电商带货页</td></tr>
+      <tr><td><strong>三、中部</strong> 核心关键分镜</td><td>默认 3 个，最多 5 个</td><td><strong>① 开场定调镜头</strong>（第一优先级）② 角色核心出场 ③ 关键动作/事件 ④ 情绪高潮/转折 ⑤ 结尾收束</td></tr>
+      <tr><td><strong>四、底部</strong> 场景背景</td><td>每个场景一张纯背景图</td><td><strong>不出现任何角色、人物、动物</strong>，不画剧情动作。标注对应关键分镜编号</td></tr>
+      <tr><td><strong>五、排版</strong></td><td>横版 16:9，纯白/浅灰底</td><td>像一张<strong>专业的影视前期设计文档</strong>，不要做成宣传海报</td></tr>
+    </tbody>
+  </table></div>
+  <div class="q tip"><p>⚠️ <strong>"开场定调镜头"被官方列为关键分镜的第一优先级</strong>——这就是你的视觉奇观开头。它必须出现在参考总表里。完整提示词见<a href="#c12">附录 A1</a>。</p></div>
+
+  <h4>3.2 再逐镜生成首帧图</h4>
+  <div class="fbox">
+    <div class="fh"><span class="dot"></span>首帧图提示词 9 要素 + 统一画风模板</div>
+    <pre><span class="cm">// 必须包含的 9 个要素</span>
+<span class="hl">画风</span> + <span class="hl">画幅</span> + <span class="hl">人物</span> + <span class="hl">年龄状态</span> + <span class="hl">服装</span> + <span class="hl">场景</span> + <span class="hl">关键道具</span> + <span class="hl">镜头景别</span> + <span class="hl">光影色调</span> + <span class="hl">情绪</span>
+
+<span class="cm">// 统一画风要求模板（圈友12版，画风描述可替换）</span>
+精美3D动漫微电影质感，接近3D皮克斯动漫风格，16:9横屏，电影感构图，
+人物圆润自然，表情细腻，不能真人化，不能低幼卡通，
+不能出现字幕、文字、水印、logo。</pre>
+  </div>
+  <p><strong>真实首帧图提示词范例</strong>（官方手册原文）：</p>
+  <div class="fbox">
+    <div class="fh"><span class="dot"></span>官方手册首帧图实例（注意三个技巧）</div>
+    <pre>3D皮克斯动漫风格，横版16:9单张全屏电影首帧。<span class="hl">婚礼当天的新房门口全景</span>，
+红色装饰、红囍字和红绸布置在门框周围；<span class="hl">青年</span>林小宇穿黑西装白衬衫深色领带，
+<span class="hl">身体比例成熟</span>，双手双脚撑在门框两边，用全身力气顶住门，肩背绷紧，表情咬牙隐忍；
+门外新郎穿红黑中式马褂，伴郎团准备推门，画面喜庆热闹但弟弟的身形
+<span class="hl">明显是长大后的青年</span>。</pre>
+  </div>
+  <div class="card"><h4 style="margin-top:0">这条提示词里的三个技巧</h4>
+    <ol style="margin-bottom:0">
+      <li><strong>景别写在场景描述里</strong>（"全景"）——不单独起一句</li>
+      <li><strong>明确排除穿帮元素</strong>——其他版本会写"不能出现婚礼装饰、红囍字……"（在童年日常段）</li>
+      <li><strong>年龄状态反复强调</strong>（"身体比例成熟""明显是长大后的青年"）——<strong>防止 AI 把青年画成小孩</strong></li>
+    </ol></div>
+  <h4>3.3 首帧图五步操作流程</h4>
+  <div class="tw"><table>
+    <thead><tr><th style="width:64px">步骤</th><th>动作</th></tr></thead>
+    <tbody>
+      <tr><td><strong>第一步</strong></td><td>先确定这一组分镜对应哪几个镜头（如"分镜 1-4"合成一条视频）。首帧图选这一组<strong>最开始的画面</strong>，或最能代表这一组内容的<strong>关键画面</strong></td></tr>
+      <tr><td><strong>第二步</strong></td><td>把分镜内容整理成首帧图提示词（或直接把 4 个分镜描述打包丢给 ChatGPT 让它出提示词）</td></tr>
+      <tr><td><strong>第三步</strong></td><td>在 ChatGPT（模型 5.5）/ 即梦里生成图片，要求横版 16:9 或竖版 9:16</td></tr>
+      <tr><td><strong>第四步</strong></td><td><strong>审核图片</strong>：人物年龄是否正确、场景是否正确、有没有穿帮元素、画风是否统一、<strong>构图是否适合后续做视频</strong>。不符合就把问题写清楚让它重出</td></tr>
+      <tr><td><strong>第五步</strong></td><td>按分镜编号保存合格图片（分镜1-4首帧图、分镜5-8首帧图……）</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>第 4 步细化：图生视频分组规则（决定成本和节奏）</h3>
+  <div class="tw"><table>
+    <thead><tr><th>段落类型</th><th>合并小分镜数</th><th>时长</th></tr></thead>
+    <tbody>
+      <tr><td>台词少或无台词</td><td>4-6 个</td><td>10-15 秒</td></tr>
+      <tr><td>普通对话段</td><td>3-5 个</td><td>12-15 秒</td></tr>
+      <tr><td>台词密集段</td><td>2-4 个</td><td>13-15 秒</td></tr>
+      <tr><td>情绪重的台词段（哭戏/告别/旁白）</td><td>1-3 个单独成组</td><td>12-15 秒</td></tr>
+    </tbody>
+  </table></div>
+  <div class="fbox">
+    <div class="fh"><span class="dot"></span>硬限制与台词换算</div>
+    <pre><span class="cm">// 硬限制</span>
+单条图生视频最长不超过 <span class="hl">15 秒</span>
+
+<span class="cm">// 台词时长换算</span>
+中文对话正常语速：每秒约 <span class="hl">4-5 个汉字</span>
+情绪强/停顿多/哭腔/争吵/哽咽：每秒约 <span class="hl">3-4 个汉字</span>
+每组除了台词，还要留出 <span class="hl">2-4 秒</span>给动作、表情反应、镜头切换和情绪停顿</pre>
+  </div>
+  <div class="q warn"><p><strong>空镜处理规则（很反直觉但省钱）：</strong>"普通空镜不要单独成组，最多作为开场或转场占 1-2 秒。<strong>不要为了'电影感'大量写极慢推镜、静止镜头、空房间停留。</strong>"</p></div>
+
+  <h3>第 5 步细化：后期精调清单</h3>
+  <div class="q"><p>"删减冗余画面、调速（一般是加快，某些情况会安排慢动作）、加音效（更生动）、加特效（片段表现力不够的情况下加）、配符合情景的背景音乐（<strong>关键是合适</strong>）、加转场、画面智能调色（剪映自带）。"</p><p>"<strong>最后一定要注意的是导出之后用视频播放器播放确认效果达到后再发布</strong>，因剪映中时间轴上的东西多了，有时候预览播放会反应不过来。"</p><span class="who">—— 圈友08</span></div>
+  <div class="card"><h4 style="margin-top:0">圈友13的剪辑三条实操经验</h4>
+    <ol style="margin-bottom:0">
+      <li><strong>先配 BGM 再剪</strong>："有 BGM 和没有 BGM 剪起来完全是两个感觉。"</li>
+      <li><strong>删多余镜头的两个判断标准</strong>：① 删掉会不会影响观众对剧情的理解？有它没它都一样 → 删 ② 删掉会不会导致前后衔接突兀？没有它更丝滑 → 删</li>
+      <li><strong>补音效</strong>：AI 经常漏音效。"seedance 2.0 只生成了汽车急刹的音效，但是没有生成撞击音效，那就要自己配。剪映 → 音频 → 音效库 → 搜关键词，然后一个一个听。"</li>
+    </ol></div>
+  <div class="tw"><table>
+    <thead><tr><th>提质动作</th><th>说明</th><th>来源</th></tr></thead>
+    <tbody>
+      <tr><td><strong>超清画质</strong></td><td>不一定是正提升，自己看感官效果</td><td>圈友16</td></tr>
+      <tr><td><strong>智能调色</strong></td><td>让画面整体更亮更鲜艳，有利于提高观看效果</td><td>圈友16</td></tr>
+      <tr><td><strong>提高导出分辨率和帧率</strong>（超分、补帧）</td><td><strong>高清的画质能够提高视频的基础推流权重</strong></td><td>圈友16</td></tr>
+      <tr><td><strong>倍速微调</strong></td><td>"视频的节奏至关重要，<strong>相对紧凑的节奏，更容易爆</strong>"（他统一用 1.5 倍速调整便宜模型生成的片段）</td><td>圈友09</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>第 6 步细化：数据验证</h3>
+  <div class="tw"><table>
+    <thead><tr><th>指标</th><th>反映什么</th><th>低了怎么改</th></tr></thead>
+    <tbody>
+      <tr><td><strong>3 秒完播率 &lt; 60%</strong></td><td>钩子不行</td><td>下一个视频<strong>换开头</strong></td></tr>
+      <tr><td><strong>完播率 &lt; 30%</strong></td><td>节奏不行</td><td>下一个视频<strong>改中段</strong></td></tr>
+      <tr><td><strong>转发率低</strong></td><td>情绪杠杆不行</td><td>下一个视频<strong>换情绪</strong></td></tr>
+    </tbody>
+  </table></div>
+  <div class="q tip"><p><strong>圈友09的补充判断（更细）：</strong>"继续观看低，说明你的视频<strong>开头不够吸引人</strong>，真正留下来的用户太少；平均播放时长低，说明你的内容要么<strong>节奏太拖拉</strong>，要么<strong>没呼应或者跟你开头的三秒钩子完全没关系，属于挂羊头卖狗肉的</strong>。"</p></div>
+  <div class="q warn"><p><strong>必须遵守的纪律：</strong>"每发一条，<strong>强制为下一个视频做出一个明确的改动决策</strong>。""至少做满一个系列（5 集）再判断。""每做一条片子，必须有一个明确的假设可以验证。<strong>没有假设的片子，就是自嗨。</strong>"</p></div>
+
+  <div class="flips">
+    <div class="fh2">学完自测</div>
+    <button class="flip"><span class="in"><span class="f q">首帧图为什么必须在生成视频之前做？</span><span class="f a">用来<strong>锁人物、锁场景、锁情绪</strong>。发现不对直接重出图片，不用等整条视频生成完再返工。</span></span></button>
+    <button class="flip"><span class="in"><span class="f q">单条图生视频最长多少秒？台词怎么换算时长？</span><span class="f a">最长 <strong>15 秒</strong>。中文正常语速每秒 4-5 字，情绪戏 3-4 字，另留 2-4 秒给动作和停顿。</span></span></button>
+  </div>
+</section>
+
+<!-- ============ 05 ============ -->
+<section class="chap rv" id="c5">
+  <div class="chead"><span class="cnum">05</span><h2>提示词实操（最干货的一章）</h2><div class="stk stk-code"></div></div>
+  <p class="lead">虽然提示词只占 20% 权重，但它是唯一能立刻上手改善的部分。这一章可以直接抄。</p>
+
+  <div class="q key"><p>"新手写提示词最大的问题是<strong>写作文</strong>。精确的提示词不是文学创作，而是把你脑子里的画面、站位、运动信息……拆成 AI 能理解的<strong>可量化信息</strong>写下来，让 AI 按要求生成。"</p><p><strong>一句话：要纯技术性，不要文学性。</strong></p></div>
+
+  <h3>5.2 万能提示词结构（顺序不能乱）</h3>
+  <div class="fbox">
+    <div class="fh"><span class="dot"></span>五层结构</div>
+    <pre><span class="hl">① 主体描述</span> → <span class="hl">② 动作描述</span> → <span class="hl">③ 运镜描述</span> → <span class="hl">④ 环境与氛围</span> → <span class="hl">⑤ 风格与质感</span></pre>
+  </div>
+  <div class="tw"><table>
+    <thead><tr><th style="width:100px">层</th><th>要写什么</th></tr></thead>
+    <tbody>
+      <tr><td><strong>① 主体</strong></td><td>人物具体特征：年龄、发型、发色、服装、肤色、体型、表情。<strong>位置站位也要说清</strong>：在画面中央、在左侧、背对镜头</td></tr>
+      <tr><td><strong>② 动作</strong></td><td>谁在动、动的方向、速度、幅度。例：<code>缓慢向前走，裙摆随步伐轻微摆动</code></td></tr>
+      <tr><td><strong>③ 运镜</strong></td><td>推、拉、摇、移、跟拍、环绕 + 速度修饰：<code>缓慢推进</code>、<code>快速拉远</code>、<code>平稳横移</code></td></tr>
+      <tr><td><strong>④ 环境氛围</strong></td><td>场景具体化（不写"在公园"，写"站在落叶铺满的石板小径上"）+ 光影（逆光/侧光/柔光）+ 氛围词（宁静/紧张/梦幻/压抑）</td></tr>
+      <tr><td><strong>⑤ 风格质感</strong></td><td>画风（写实/二次元/水彩/油画/电影质感）+ 镜头质感（35mm胶片感/浅景深虚化/广角畸变/手持晃动感）</td></tr>
+    </tbody>
+  </table></div>
+  <div class="q"><p><strong>为什么顺序重要：</strong>"AI 在解析提示词时，<strong>靠前的信息权重更高</strong>。把最重要的画面主体放最前面，风格修饰放后面，能让 AI 优先保证主体正确。"</p></div>
+
+  <h3>5.3 模糊版 vs 精确版（背下来这个对比）</h3>
+  <div class="pit">
+    <div class="ph bad">✗ 模糊版</div><div class="ph good">✓ 精确版</div>
+    <div class="no" style="font-family:var(--mono);font-size:12.6px;font-style:italic">一个女孩在海边走路，夕阳很美</div>
+    <div style="font-family:var(--mono);font-size:12.2px;font-style:italic;line-height:1.8">一个20岁左右的亚洲女孩，黑色长发随风飘动，穿白色亚麻长裙，赤脚，位于画面中央偏右，面朝大海缓慢向前走，裙摆随海风轻轻飘动，头发向右侧飞扬。镜头从背后中景缓慢推向近景，保持平稳。黄昏金色光线从右侧逆光照射，海面泛着橙金色波光，远处地平线略有雾气。电影写实风格，35mm胶片质感，浅景深背景虚化，色调温暖偏橙。</div>
+  </div>
+  <div class="q warn"><p>"差别在哪？模糊版把 5 个要素全部交给 AI 自由发挥。AI 会随机决定女孩长什么样、往哪走、镜头怎么动、光从哪来、什么画风——<strong>五个随机叠加，结果必然失控</strong>。"</p></div>
+
+  <h3>5.4 提升精确度的六个技巧</h3>
+  <div class="tw"><table>
+    <thead><tr><th style="width:180px">技巧</th><th>❌ 差</th><th>✅ 好</th></tr></thead>
+    <tbody>
+      <tr><td rowspan="3"><strong>技巧 1：可量化</strong><br><span style="color:var(--ink-3);font-size:12.2px">不要形容词，必须可量化</span></td><td class="no">很快</td><td class="yes">以正常步速的两倍速度</td></tr>
+      <tr><td class="no">很近</td><td class="yes">面部占据画面 70%</td></tr>
+      <tr><td class="no">很暗</td><td class="yes">仅左侧有一束微弱冷光照明</td></tr>
+      <tr><td><strong>技巧 2：运动公式</strong><br><span style="color:var(--ink-3);font-size:12.2px">= 方向 + 速度 + 幅度</span></td><td class="no">手在动</td><td class="yes">右手缓慢从身侧抬起至肩膀高度，手掌向镜头方向展开</td></tr>
+      <tr><td><strong>技巧 3：运镜公式</strong><br><span style="color:var(--ink-3);font-size:12.2px">= 方式 + 方向 + 速度 + 起止景别</span></td><td class="no">镜头推进</td><td class="yes">镜头从全景缓慢匀速推至中近景，约 3 秒完成</td></tr>
+      <tr><td><strong>技巧 4：视觉名词优先</strong></td><td class="no">很有氛围感</td><td class="yes">低角度仰拍，逆光剪影，背景有体积光穿透</td></tr>
+      <tr><td><strong>技巧 5：否定排除</strong></td><td class="no">（不写排除项）</td><td class="yes">负面词：<code>变形、多余手指、文字水印、模糊、低画质、突兀画风变化</code>；正向词加 <code>自然运动、无突变、无变形</code></td></tr>
+      <tr><td><strong>技巧 6：先画面再运动最后风格</strong></td><td class="no">风格词写在开头</td><td class="yes">主体放最前（靠前权重高），风格修饰放后面</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>5.5 运镜提示词词库（圈友16 整理，直接用）</h3>
+  <div class="cards" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr))">
+    <div class="card"><span class="tag tg-sky">6 个基本运镜</span><div class="eg" style="margin-top:0">水平运镜、垂直运镜、推进/拉远、垂直摇镜、旋转摇镜、水平摇镜</div></div>
+    <div class="card"><span class="tag tg-plum">4 个进阶运镜</span><div class="eg" style="margin-top:0">左旋推进、右旋推进、推进上移、下移拉远</div></div>
+  </div>
+  <div class="q key"><p><strong>圈友13的铁律四——景别运镜必须写在提示词开头：</strong>"你的提示词开头必须明确标明景别与运镜方式，如：<code>【特写，缓慢推镜头】</code>、<code>【极近特写，手持镜头轻微晃动】</code>、<code>【全景，快速平摇】</code>。<strong>大量使用特写和极近特写，以捕捉人物情绪和关键细节，提升视觉冲击力。</strong>"</p></div>
+  <div class="fbox">
+    <div class="fh"><span class="dot"></span>圈友12分镜提示词里的镜头标签（可直接抄格式）</div>
+    <pre>【中景，固定镜头】      【特写，手持微晃】      【中近景，缓慢推镜头】
+【极近特写，快速推镜头】 【特写，低角度俯拍】    【特写，缓慢拉镜头】
+【全景，缓慢推镜头】    【中景，跟随镜头】      【俯视全景，缓慢拉镜头】
+【特写，侧面机位】      【空镜，固定镜头】      【中景，镜面构图】</pre>
+  </div>
+  <div class="q tip"><p><strong>圈友13的运镜经验（很实用）：</strong>"像这种要表现情绪的镜头，你要是拿不准，<strong>就用推</strong>。"</p></div>
+
+  <h3>5.6 情绪具象化（最能拉开质感差距的一条）</h3>
+  <div class="tw"><table>
+    <thead><tr><th style="width:36%">❌ 禁止写法</th><th>✅ 必须改成的具象化写法</th></tr></thead>
+    <tbody>
+      <tr><td class="no">他很害怕</td><td class="yes">他的瞳孔骤然放大，嘴唇发白，喉结剧烈滚动，整个人僵在原地</td></tr>
+      <tr><td class="no">她很生气</td><td class="yes">她的眉头猛地拧紧，嘴角控制不住地抽搐，手指因为愤怒死死攥成拳</td></tr>
+      <tr><td class="no">他走了</td><td class="yes">他转身离开时没有回头，肩膀却明显塌了下去，背影被走廊冷光拉得很长</td></tr>
+      <tr><td class="no">她哭了</td><td class="yes">她眼眶迅速泛红，眼泪在睫毛上打转，却强忍着没有落下</td></tr>
+      <tr><td class="no">他看着对方</td><td class="yes">他盯着那张旧照片，呼吸突然停住，眼神从疑惑一点点变成崩溃</td></tr>
+      <tr><td class="no">他很孤独</td><td class="yes">空荡的餐桌上只剩一副碗筷，窗外霓虹闪烁，房间里没有人说话</td></tr>
+    </tbody>
+  </table></div>
+  <h4>十种情绪的具象化配方</h4>
+  <div class="tw"><table>
+    <thead><tr><th>情绪</th><th>必须写出的身体信号</th></tr></thead>
+    <tbody>
+      <tr><td><strong>恐惧</strong></td><td>身体僵硬、瞳孔震颤、呼吸失控</td></tr>
+      <tr><td><strong>愤怒</strong></td><td>眉眼紧绷、拳头攥紧、嘴角抽搐</td></tr>
+      <tr><td><strong>悲伤</strong></td><td>眼神失焦、喉咙哽住、肩膀下沉</td></tr>
+      <tr><td><strong>惊喜</strong></td><td>眼睛发亮、嘴角上扬、身体前倾</td></tr>
+      <tr><td><strong>崩溃</strong></td><td>表情失控、动作迟滞、身体微微发抖</td></tr>
+      <tr><td><strong>尴尬</strong></td><td>眼神躲闪、嘴角僵硬、手部小动作</td></tr>
+      <tr><td><strong>心虚</strong></td><td>吞咽、闪躲、强装镇定</td></tr>
+      <tr><td><strong>震惊</strong></td><td>短暂停顿、眼睛睁大、嘴巴微张</td></tr>
+      <tr><td><strong>孤独</strong></td><td>空间距离、空椅子、背影、门缝、冷光、沉默</td></tr>
+      <tr><td><strong>怀念</strong></td><td>旧物、照片、窗光、停顿、眼神变化</td></tr>
+    </tbody>
+  </table></div>
+  <div class="q tip"><p><strong>为什么要这么写：</strong>Seedance 2.0 对"细腻表情"的理解力很强，但<strong>你不写它就随机</strong>。这是把 AI 的表现力从 60 分推到 90 分最便宜的一步。</p></div>
+
+  <h3>5.7 圈友16 的五条提示词底层规则（含真实翻车案例）</h3>
+  <div class="card"><h4 style="margin-top:0">规则一：图片趋势与视频相同</h4>
+    <p style="margin-bottom:0">"图片都是最重要的一环。如果要实现'走路、走秀'的效果，用的图片就最好是<strong>行走的姿态</strong>，最次也要是站立的姿势。如果用'跳舞'的图片来生成'走秀'的视频，<strong>大概率会崩掉</strong>，因为图片趋势和视频生成的动作相悖。选择图片时要注意<strong>排除干扰、选择合适的主体动作</strong>。"</p></div>
+  <div class="card"><h4 style="margin-top:0">规则二：利用惯性（解决画面静止不动）</h4>
+    <p>"AI 视频生成，特别是首尾帧，有'惯性'的说法。如果首尾图变化不大或变化太大，就经常出现<strong>生硬的或 PPT 式转场</strong>。这时需要给予能引发画面变化的提示词。"</p>
+    <div class="fbox" style="margin-bottom:0"><div class="fh"><span class="dot"></span>两类"激活"提示词</div><pre>运镜控制：摄像头拉远 / 摄像头拉近 / 摄像头旋转 / 摄像头向左·右移动
+激活动作：美女举起手，变身成蒲公英
+<span class="cm">// 作用：让画面有了"变化"的惯性，就不容易静止不动</span></pre></div></div>
+  <div class="card"><h4 style="margin-top:0">规则三：取其精华，去其糟粕</h4>
+    <p>"确保每一句话、每一个词汇都有它的意义，<strong>不要用'虽然但是'之类的关联词</strong>。简洁表述无法实现效果时，将一个复杂动作拆解为多个简单动作。"</p>
+    <div class="pit" style="margin-bottom:0">
+      <div class="ph bad">✗ 笼统写</div><div class="ph good">✅ 拆解成多段细提示词</div>
+      <div class="no" style="font-family:var(--mono);font-size:12.4px">房屋坍塌<br><span style="color:var(--ink-3);font-family:var(--body)">→ 房子没塌</span></div>
+      <div style="font-family:var(--mono);font-size:12px;line-height:1.75">金毛犬看向木屋，常年失修的木制结构房屋轰然崩塌，房顶塌陷，沙尘漫天，树木倒地，房梁窗户支离破碎，房屋材料混杂着沙尘和碎石滚落到公路上，仿佛世界末日</div>
+    </div></div>
+  <div class="card"><h4 style="margin-top:0">规则四：直接描述结果，结果具象化（最容易踩的坑）</h4>
+    <p style="margin-bottom:6px"><strong>真实案例——"神奇酒瓶事件"：</strong>写了 <code>另一只手始终空着不拿任何物品</code></p>
+    <div class="q key" style="margin-top:0"><p>"如果画面里出现了你不想要的元素，<strong>那就不要提这个元素</strong>。AI 视频的提示词读取逻辑是<strong>取关键词</strong>，'另一只手始终空着不拿任何物品'这句属于<strong>无效提示词，AI 会读取成'手拿物品'</strong>。"</p></div>
+    <div class="fbox"><div class="fh"><span class="dot"></span>每一句都要有它的作用（圈友16 逐句拆解）</div><pre>老人举起手      <span class="cm">【强调动作，让画面产生变化的趋势】</span>
+喝下一口酒      <span class="cm">【主要动作】</span>
+变成了年轻人    <span class="cm">【主要动作，引导主体变身】</span>
+超强变身        <span class="cm">【强化变身的动作】</span>
+摄像头旋转      <span class="cm">【镜头提示词，让画面产生变化的趋势】</span>
+动态画面        <span class="cm">【修饰提示词，强化动态效果】</span></pre></div>
+    <p style="margin-bottom:0"><strong>远近要具象成大小：</strong>"描述'两个主体往反方向走'或表述'远近'时，可以描述得更加具象化，<strong>把远近变成大小</strong>。"<br><span style="font-size:13.2px;color:var(--ink-3)">✅ 优化后：<code>狮子们和救护车朝着相反的方向走远，狮子走向镜头前，救护车越来越远，逐渐消失在视野里</code></span></p></div>
+  <div class="card"><h4 style="margin-top:0">规则五：图片质量决定视频质量</h4>
+    <p style="margin-bottom:0">"视频画质不够高的时候，把图片像素提高。即梦可以超清、MJ 可以画质提升，<strong>图片像素越高视频像素就越高</strong>。（直观地体现在文件大小上）"</p></div>
+
+  <h3>5.8 提示词的范式转变：从"描述"到"素材编排"</h3>
+  <div class="banner"><div class="big">过去的提示词是纯粹用文字描述你想要的画面。<br>现在的提示词是把你准备好的素材，按正确的顺序和关系组织起来，再用文字补充说明。</div></div>
+  <div class="pit">
+    <div class="ph bad">✗ 旧思路（纯文字）</div><div class="ph good">✓ 新思路（素材编排）</div>
+    <div class="no" style="font-family:var(--mono);font-size:12.4px">角色A站在左边，角色B站在右边，两人对峙<br><span style="color:var(--ink-3);font-family:var(--body)">问题：AI 不知道 A 和 B 长什么样，不知道"左边"是多左，不知道两人距离多远</span></div>
+    <div style="font-size:13px;line-height:1.8">① 先准备好 A 的三视图、B 的三视图、场景参考图<br>② 把三张图作为参考素材一起输入<br>③ 提示词只负责描述<strong>关系</strong>：<br><span style="font-family:var(--mono);font-size:12px">角色A位于屏幕左下角，面向屏幕右上方侧立；角色B位于屏幕右下角，与A呈对角站位，两人相距约3米；集体面朝画面中心。镜头从两人中间低角度缓慢后拉。</span></div>
+  </div>
+  <div class="q tip"><p>"关键变化：<strong>AI 不需要从文字里想象角色长什么样——它看图。</strong>文字只需要处理站位关系、运动、镜头这些图表达不了的东西。"</p><p><strong>即梦全能参考模式的用法：</strong>最多可传 12 个参考素材，提示词里用 <code>@图片1 模仿 @视频1 的动作</code> 这样引用。<strong>保角色一致的正解，就是把资产卡传进来 @ 着用</strong>（暂不支持真人人脸）。</p></div>
+
+  <h3>5.9 新手常犯的五个提示词错误</h3>
+  <div class="tw"><table>
+    <thead><tr><th style="width:34px">#</th><th>错误</th><th>说明</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td class="no">写得太短</td><td>视频提示词至少要写出<strong>一段完整的话</strong></td></tr>
+      <tr><td>2</td><td class="no">只描述静态画面，不描述运动</td><td>这是视频不是图片，<strong>不写运动 AI 就会随机乱动</strong></td></tr>
+      <tr><td>3</td><td class="no">堆砌风格词，信息矛盾</td><td>错误示例：<code>二次元赛博朋克水彩写实电影感</code>。<strong>一个提示词里画风统一才会显得高级，就像穿搭一样</strong></td></tr>
+      <tr><td>4</td><td class="no">忽略运镜，全靠 AI 自由发挥</td><td>不指定运镜，你敢让它自由发挥吗</td></tr>
+      <tr><td>5</td><td class="no">不迭代，写一遍纯赌运气</td><td>精确的提示词是<strong>改出来的</strong>：生成看效果 → 发现问题 → 针对性调整 → 再生成</td></tr>
+    </tbody>
+  </table></div>
+  <div class="q tip"><p><strong>提示词训练法：</strong>"拿同一个画面，写三个版本的提示词：① 几个词的极简版 ② 一句话的普通版 ③ 完整结构化精确版。分别生成，对比结果。<strong>提示词是肌肉记忆，光看不练没用。写上二十条精确提示词，水平自然就上来了。</strong>"</p></div>
+
+  <div class="say"><div class="stk stk-code"></div><div class="bubble">提示词写不好，九成是因为<b>图没准备好</b>。先回去补首帧和三视图，再回来改词。<span class="who">马哥说</span></div></div>
+</section>
+
+<!-- ============ 06 ============ -->
+<section class="chap rv" id="c6">
+  <div class="chead"><span class="cnum">06</span><h2>工具选型与成本分配</h2><div class="stk stk-money"></div></div>
+  <p class="lead">钱要花在刀刃上——刀刃就是开头。</p>
+  <div class="banner"><div class="big">开头前 15s/30s 用 Seedance 高端模型，<br>中后段用便宜模型跑画面。</div><p>"等流量跑通以后，或者是具备 YPP 能力后，再尝试逐步提高 Seedance 模型的占比。对于想一开始就追求完美的伙伴而言，可以采用主 Seedance 模型，<strong>要做非常高质量的，Seedance 必不可少</strong>。" —— 圈友09（深海圈咨询教练 · 40+ 账号 · 10+ YPP · 月入万刀）</p></div>
+
+  <h3>6.2 模型档位选择逻辑</h3>
+  <div class="tw"><table>
+    <thead><tr><th style="width:140px">档位</th><th>特点</th><th>用途</th></tr></thead>
+    <tbody>
+      <tr><td><strong>mini / fast</strong></td><td>理解能力稍弱但<strong>更听话</strong>，可以做出来一些<strong>极其反物理常识</strong>的东西</td><td>便宜档试错；<strong>做超现实视觉奇观</strong></td></tr>
+      <tr><td><strong>标准版</strong></td><td><strong>发散性更好，还原世界的物理性更好</strong>；fast 档细节把控可能差点意思</td><td>贵档定稿；全片终稿只用标准版</td></tr>
+    </tbody>
+  </table></div>
+  <div class="q tip"><p>"这套'<strong>便宜档试错、贵档定稿</strong>'的分工，高手也是这么用的。"</p><p><strong>做视觉奇观开头的启发：</strong>超现实画面（非牛顿流体、巨物、画风突变）反而适合用 mini/fast——因为它"更听话"，能做出反物理常识的东西，<strong>还便宜</strong>。</p></div>
+
+  <h3>6.3 生成渠道对比（即梦 Seedance 2.0）</h3>
+  <div class="tw"><table>
+    <thead><tr><th style="width:110px">渠道</th><th>特点</th><th>成本</th></tr></thead>
+    <tbody>
+      <tr><td><strong>即梦网页版</strong></td><td>官网，并发限制 1 个，单条 10-20 分钟，高峰期排队可能数小时</td><td>图片 5.0 Lite 免费；Seedance 2.0 Fast 约 <strong>5 积分/秒</strong>，2.0 约 <strong>8 积分/秒</strong>（720P）</td></tr>
+      <tr><td><strong>小云雀</strong></td><td>字节旗下创作 agent，<strong>速度比即梦快很多</strong>（10 分钟内），支持挂载抖音真人视频参考，支持 2.0/2.0fast</td><td>10 秒的 2.0fast 消耗 30 积分；<strong>每天登陆送 66 积分</strong>；79 元/月会员 830 积分</td></tr>
+      <tr><td><strong>豆包</strong></td><td>免费，每个账号有 8 个 fast 额度，均可 10 分钟内完成</td><td class="no">彩铅人脸过不了豆包</td></tr>
+    </tbody>
+  </table></div>
+  <p><strong>出图工具</strong>：即梦（图片 5.0 Lite 免费）/ Nano ba圈友04·Gemini（会员每天 100 张免费，非会员 20 张）/ ChatGPT image2（圈友12主力）</p>
+
+  <h3>6.4 圈友16 的模型实测排序（可直接查表选型）</h3>
+  <div class="tw"><table>
+    <thead><tr><th style="width:140px">场景</th><th>主观排序 / 建议</th></tr></thead>
+    <tbody>
+      <tr><td><strong>首尾帧</strong></td><td>pixverse4.5 ≥ pika &gt; vidu &gt; 可灵1.6 &gt; runway<br><span style="color:var(--ink-3);font-size:12.6px">自动化出首尾帧推荐 vidu 或 runway（无限额度）；<strong>手搓首尾帧仅推荐 pixverse，效果好太多</strong></span></td></tr>
+      <tr><td><strong>单图生视频</strong></td><td>可灵2.0 &gt; pixverse4.5 &gt; 可灵1.6 ≥ viduQ1 ≈ 即梦3.0 &gt; runway Gen4 ≈ Veo2</td></tr>
+      <tr><td><strong>复杂主体动作</strong></td><td>即梦3.0 / 可灵2.0 / 可灵1.6 / runway 领先</td></tr>
+      <tr><td><strong>大幅度变身</strong></td><td><strong>pixverse 最佳</strong>，其次 pika / vidu / runway / 可灵1.6</td></tr>
+      <tr><td><strong>溶解 / 流体特效</strong></td><td><strong>pika / pixverse 最佳</strong>（官方内置溶解效果）；可灵接近；runway 加"非牛顿流体"名词也能实现</td></tr>
+      <tr><td><strong>名人视频</strong></td><td>可灵2.0、可灵1.6、runway、pixverse、vidu 可用；<span class="no">veo2、即梦 = 🈲</span></td></tr>
+    </tbody>
+  </table></div>
+  <div class="q"><p><strong>圈友15 的团队选型（交付近千条商单）：</strong>"Libtv：seedance2.0、klingO3（这两个模型各有所长，<strong>主力是 seedance2.0，KlingO3 在人物神态语气方面略胜一筹</strong>）"</p></div>
+
+  <h3>6.5 省积分的四个动作</h3>
+  <div class="card"><ol style="margin-bottom:0">
+    <li><strong>低分辨率快速验证，高分辨率出终版</strong>——批量测试创意用 720p 或低画质，选定方案后再高画质出片，<strong>省 60% 以上积分</strong></li>
+    <li><strong>每个镜头预留 3-5 次抽卡预算</strong>（超过就停下来改素材，见第 7 章）</li>
+    <li><strong>生成时选 720p</strong>，成片在剪映导出时选 1080P，也可以在画布内超分</li>
+    <li><strong>关键镜直接拉时长到 8-12 秒</strong>，比后期变速拼长自然得多（注意价格按秒线性计）</li>
+  </ol></div>
+
+  <h3>6.6 排队应对（即梦）</h3>
+  <div class="q warn"><p>"排队是常态，别以为坏了。四件事：① 排队卡片上有「<strong>免费加速</strong>」×2，点了进优先队列 ② 页面预估时间很不准，<strong>看状态别看数字</strong> ③ 高峰期同时只能排 1 个任务——想再发会提示'暂时无法提交更多任务'（<strong>不扣积分，词和图都还在卡片里</strong>，等上一条完成点「再次生成」即可）④ 这也是会员和 VIP 通道真正卖的东西——<strong>插队权和并发数</strong>。</p><p><strong>新手正确姿势：发出去就去干别的</strong>（写下一镜提示词、剪已有素材），完成一条再发下一条，别坐在屏幕前干等。"</p></div>
+
+  <h3>6.7 官方的选型定心丸</h3>
+  <div class="q tip"><p>"工具答案很简单：<strong>Kimi/Google AI Studio（写分镜）+ 即梦（生图 + 视频）+ 剪映（剪辑）</strong>。不用纠结选型——先把一条片完整跑通。"</p><p>"一句话定心：<strong>方法内核（资产先行 + 分镜控制）跟工具无关</strong>——你在即梦练出来的每一个动作，换任何平台都成立。"</p><span class="who">—— 官方航海手册《AI 高质感视频》· 第二关</span></div>
+  <div class="q key"><p><strong>风险对策（Sora 说关就关的教训）：</strong>"你的脚本、分镜、角色资产必须是<strong>工具无关的独立文件</strong>，换工具只换'生成'这一步。"</p><p>圈友11的判断更狠："<strong>不要把身家押在任何一个单一工具上。今天最强的模型，明天可能就关停。真正属于你的资产是可迁移的方法，不是某个工具的会员。</strong>"</p></div>
+
+  <h3>6.8 画风选择决策表（开头画面的调性）</h3>
+  <div class="tw"><table>
+    <thead><tr><th>问题</th><th>选项</th><th>指向画风</th></tr></thead>
+    <tbody>
+      <tr><td rowspan="5"><strong>故事情绪？</strong></td><td>温暖治愈</td><td>吉卜力、水彩、童话绘本、毛毡、粉彩</td></tr>
+      <tr><td>紧张刺激</td><td>赛博朋克、暗黑奇幻、废土、故障艺术</td></tr>
+      <tr><td>宏大史诗</td><td>电影写实、油画厚涂、太空歌剧、青绿山水</td></tr>
+      <tr><td>荒诞幽默</td><td>美式卡通、黏土动画、波普艺术</td></tr>
+      <tr><td>唯美伤感</td><td>新海诚、胶片质感、水墨、梦核</td></tr>
+      <tr><td rowspan="3"><strong>目标平台？</strong></td><td>抖音/快手（竖屏）</td><td><strong>高对比、高饱和、信息密度高</strong>的画风</td></tr>
+      <tr><td>B站/YouTube（横屏）</td><td>电影写实、硬科幻、纪录片质感</td></tr>
+      <tr><td>小红书</td><td>治愈系、设计感、极简</td></tr>
+      <tr><td rowspan="2"><strong>能力边界？</strong></td><td>一致性把控弱</td><td>选<strong>风格化强</strong>的画风（二次元、水墨、像素），<strong>容错率高</strong></td></tr>
+      <tr><td>一致性把控强</td><td>可以挑战写实、电影写实</td></tr>
+    </tbody>
+  </table></div>
+  <div class="q tip"><p><strong>画风使用四条建议：</strong>① 画风名词不是万能的，最可靠的是<strong>画风名词 + 风格参考图</strong>一起给 AI ② 可以混搭，但<strong>一次不超过两种主风格</strong> ③ 画风要和故事主题匹配（治愈故事配暗黑哥特会很违和）④ <strong>画风在整个视频里要统一</strong>——最忌讳第一个镜头写实、第二个二次元、第三个水彩，除非你刻意做"画风即叙事"</p></div>
+
+  <div class="say"><div class="stk stk-money"></div><div class="bubble">积分不是省出来的，是<b>分配</b>出来的：开头砸钱、中段省钱、结尾补钱。测版永远用 720p。<span class="who">马哥说</span></div></div>
+</section>
+
+<!-- ============ 07 ============ -->
+<section class="chap rv" id="c7">
+  <div class="chead"><span class="cnum">07</span><h2>抽卡失败怎么办</h2><div class="stk stk-think"></div></div>
+  <p class="lead">圈友15 近千条商单交付换来的经验。这一章能帮你省下大量积分和时间。</p>
+  <div class="q key"><p><strong>铁律：4-5 次不出来就停手。不要死磕提示词。</strong></p></div>
+  <div class="fbox">
+    <div class="fh"><span class="dot"></span>官方诊断路径：往上游退，不要往下游磕</div>
+    <pre>脚本 → 分镜 → 角色设计 → <span class="hl">资产准备</span> → 视频生成 → 后期合成
+                              ↑
+              <span class="bad">生成阶段出不来时，回到这里改</span></pre>
+  </div>
+  <div class="q tip"><p>"当你在生成阶段发现某个镜头怎么都出不来，<strong>不要死磕提示词，回到第三步改首帧/改资产。问题大概率在素材，不在提示词。</strong>"</p><p>"前一个阶段的产出，是后一个阶段的输入。脚本出了问题，分镜就会跑偏；三视图不统一，生成的视频里角色就会变脸；资产没准备好，生成就会反复返工。"</p><span class="who">—— 官方航海手册 · 第三部分链路总览</span></div>
+
+  <h3>7.3 复杂动作的正确攻坚顺序</h3>
+  <div class="q"><p>"部分的产品结构非常规设计……这会导致 AI 模型在理解使用的物理逻辑层面会出错，这个时候<strong>要先做图引导正确的核心动作</strong>，避免多次抽卡问题。像开瓶器下方的开口靠近瓶盖，并且用金属凸片卡住瓶盖一侧的这个动作，<strong>单靠提示词，很容易穿模</strong>。"</p><span class="who">—— 圈友15（螃蟹开瓶器案例）</span></div>
+  <div class="q key"><p>"<strong>如果目标只是攻克开瓶盖动作，最关键的是先把首帧图锁好，包括手的位置、瓶盖的位置、手部动作和产品关系。复杂的动作类视频不要一上来写长提示词，先判断动作的关键帧在哪里。这是个很重要的经验点。</strong>"</p></div>
+  <div class="fbox">
+    <div class="fh"><span class="dot"></span>攻坚流程</div>
+    <pre>判断关键帧在哪 → <span class="hl">先锁首帧图</span>（手的位置 / 物的位置 / 动作关系）→ 再写提示词 → 抽卡</pre>
+  </div>
+
+  <h3>7.5 圈友13的补分镜技巧（含省钱妙招）</h3>
+  <div class="steps">
+    <div class="step"><div class="n">1</div><div class="b"><div class="d">打开 Gemini，<strong>上传带有场景图的关键帧 + 角色的参考图</strong>（目的是保持角色和场景一致性）</div></div></div>
+    <div class="step"><div class="n">2</div><div class="b"><div class="d">生成缺失的关键分镜图</div></div></div>
+    <div class="step"><div class="n">3</div><div class="b"><div class="d"><strong>由于这个镜头没有说话，所以直接用 seedance 1.0 生成就行，这个模型不会卡真人</strong>（省钱技巧）</div></div></div>
+  </div>
+
+  <h3>7.6 分镜必须逐镜核对（圈友13的血泪）</h3>
+  <div class="q warn"><p>"分镜提示词有了之后，我们要拿着分镜去和剧情进行一下对照，看看是否都能对的上，<strong>因为 AI 可能加分镜，也可能减分镜</strong>。"</p><p>他的实际改动：· "剧情到 27 个分镜就结束了，<strong>27-35 分镜都是 AI 自己加戏，所以要删掉</strong>" · "台词中的 Mommy 都被我改成了 Nezuko，因为祢豆子是炭治郎的妹妹，不是妈妈" · "第 7 个分镜删除，对标视频中并没有制作纸杯电话的过程" · "第 6 个分镜，拉镜头改成了推镜头" · "补充第 10 个分镜，漏掉了一个展示祢豆子情绪的画面"</p></div>
+</section>
+
+<!-- ============ 08 ============ -->
+<section class="chap rv" id="c8">
+  <div class="chead"><span class="cnum">08</span><h2>减 AI 感的七个设计层动作</h2><div class="stk stk-smile"></div></div>
+  <p class="lead">圈友15 用一条宠物牵引绳视频拆解的"真实感设计"。关键：这七条是在<strong>脚本层面</strong>做的，不是提示词层面。</p>
+  <div class="cards">
+    <div class="card"><span class="tag tg-sky">① 人物</span><h4>面部要有真实瑕疵</h4><div class="eg" style="margin-top:0">"人物的面部有很多真实的细节，比如说<strong>抬头纹、皮肤的纹理，还有略显凌乱的发型</strong>，这些细节的瑕疵感，是刻意减弱人物 AI 感的核心。"</div></div>
+    <div class="card" style="border-color:#F6C9C9"><span class="tag tg-rose">② 最关键的一条</span><h4>设计"触发动作的原因"</h4><div class="eg" style="margin-top:0">"很多人可能会从提示词的层面去入手，但是我觉得<strong>在脚本层面设计出触发动作的原因，有时候才是减 AI 感的根本</strong>。如果把动作替换成人物拿着牵引绳对着镜头 UGC 风格介绍，剧情层面不够吸引人，同时<strong>很容易在人物神态、眼神、面部表情暴露 AI 感</strong>。核心是：<strong>在人物动作、镜头画面的设计层面，就要提前避开 AI 感很重的画面和动作设计。</strong>"</div></div>
+    <div class="card"><span class="tag tg-butter">③ 反直觉</span><h4>光线要"不完美"</h4><div class="eg" style="margin-top:0">"视频场景并没有选择在晴天的公园，原因是<strong>晴天的阳光和光线通常十分完美，但这种完美，容易让 AI 视频的氛围产生脱离现实的感觉，而阴天的不完美天气带来了不完美光线，这也是有意为之。</strong>"</div></div>
+    <div class="card"><span class="tag tg-mint">④ 场景</span><h4>要有"生活痕迹"</h4><div class="eg" style="margin-top:0">"有的场景做的像是样板间，而真实达人拍摄环境是居家自然真实的，比如<strong>沙发上可能搭着一条没叠好的毛毯，衣帽间地上散放着几双鞋子</strong>等等，这些都是消除 AI 感的细节。"</div></div>
+    <div class="card"><span class="tag tg-plum">⑤ 人物细节</span><h4>要有"地域特征"</h4><div class="eg" style="margin-top:0">"人物的原生感方面，比如<strong>美国白人女性经常在胳膊或者腿部有小的纹身、黑人女性喜欢带有夸张色彩的美甲</strong>等等也都是极为关键的细节。"</div></div>
+    <div class="card"><span class="tag tg-sky">⑥ 流程</span><h4>提前生成人物，不要让模型直出</h4><div class="eg" style="margin-top:0">"人物我们一般都会提前生成，不管是三视图，还是场景+人物，因为<strong>如果让 seedance2.0 直接生成的人物，有非常明显的 AI 建模感</strong>。"</div></div>
+  </div>
+  <div class="q warn"><p><strong>⚠️ 注意③和圈友14的"光线极其充足、饱和度极高"看似矛盾，其实是两类内容：</strong></p><p>· <strong>奇观类/爽感类</strong>（达人秀变身、异世界、励志故事）→ 要光线充足、饱和度高（<strong>追求冲击力</strong>）<br>· <strong>UGC 类/真实感类</strong>（带货、生活剧情、商单投流素材）→ 要阴天不完美光线（<strong>追求原生感</strong>）</p><p><strong>按你的内容类型选，不要混用。</strong></p></div>
+  <div class="q tip"><p><strong>⑦ 一个"看似简单却有效"的创意范例：</strong>"走在街上突然被一个陌生的路人不经意间夸了一句'裙子真好看'，然后女生脸上流露出克制的惊喜表情——这样看似简单的细节设计<strong>少了刻意的广告感，却更迎合人性，反而容易取得奇效</strong>。"</p></div>
+  <div class="q key"><p><strong>圈友15 的一条底层判断：</strong>"<strong>脚本和视频的重要性是 6:4。</strong>图片和视频提示词决定画面能不能出来，而<strong>脚本决定这条视频有没有测试价值</strong>。很多 AI 视频画面不差但效果不好，可能的问题：痛点表达不清晰 / 场景和人物真实感不强 / 卖点展现过多 / <strong>开头钩子吸引力太弱，用户看完不知道为什么要继续看</strong> / 种草属性强割草属性太弱。"</p></div>
+</section>
+
+<!-- ============ 09 ============ -->
+<section class="chap rv" id="c9">
+  <div class="chead"><span class="cnum">09</span><h2>AI 味自查表 + 数据验证</h2><div class="stk stk-code"></div></div>
+  <p class="lead">成片前逐项过一遍。这三张表能挡住 90% 的低质产出。</p>
+  <h3>9.1 AI 味六个典型症状</h3>
+  <div class="tw"><table>
+    <thead><tr><th style="width:34px">#</th><th>症状</th><th>具体表现</th><th>病根</th><th>解法</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td class="no"><strong>角色漂移</strong></td><td>同一角色在不同镜头里脸、衣服细节、身高比例不一致</td><td>没有做三视图，或没喂给每一个镜头</td><td>建角色资产库，<strong>每个镜头都挂参考图</strong></td></tr>
+      <tr><td>2</td><td class="no"><strong>光影错乱</strong></td><td>前一镜光从左边来，后一镜从右边来；室内外色温不统一</td><td>没有提前定光影设定</td><td>写一份<strong>光影设定文档</strong>，所有提示词统一引用</td></tr>
+      <tr><td>3</td><td class="no"><strong>镜头发呆</strong></td><td>画面长时间静止，或镜头乱动但没有叙事目的</td><td>没设计运镜，或运镜和剧情无关</td><td><strong>每个镜头的运镜必须回答"为什么要这么动"</strong></td></tr>
+      <tr><td>4</td><td class="no"><strong>节奏平推</strong></td><td>所有镜头一样长、一样快，没有张弛</td><td>分镜阶段没标时长</td><td>分镜表里<strong>强制标注每个镜头时长，且必须有长短变化</strong></td></tr>
+      <tr><td>5</td><td class="no"><strong>手部崩坏</strong></td><td>手部特写出六根手指、手指扭曲</td><td>AI 的已知短板</td><td><strong>避开手部特写</strong>，用中景或让手在画面外/被物体遮挡</td></tr>
+      <tr><td>6</td><td class="no"><strong>对话出戏</strong></td><td>口型对不上、多人对话画面崩</td><td>AI 口型同步仍是弱项</td><td><strong>改用旁白驱动 + 画面展示</strong>，对话只留最关键一两句</td></tr>
+    </tbody>
+  </table></div>
+  <div class="q tip"><p><strong>一个快速判断法：</strong>"把你的片子<strong>静音看一遍</strong>。如果静音状态下就看不下去，说明你的<strong>画面信息密度不够</strong>。"</p></div>
+
+  <h3>9.2 高质感的三个量化维度（每条片子打分）</h3>
+  <div class="tw"><table>
+    <thead><tr><th>维度</th><th>定义</th><th>及格线</th><th>检查方法</th></tr></thead>
+    <tbody>
+      <tr><td><strong>一致性分</strong></td><td>同一角色/场景在全部镜头中的稳定程度</td><td class="yes"><strong>90% 以上镜头不出明显偏差</strong></td><td>所有镜头截图拼成一排，看是不是同一个人、同一个地方</td></tr>
+      <tr><td><strong>密度分</strong></td><td>单位时间内的有效视觉信息量</td><td class="yes"><strong>每 3-5 秒至少一个视觉变化</strong></td><td>秒级节奏表，标记每个变化点</td></tr>
+      <tr><td><strong>情绪分</strong></td><td>全片情绪曲线的起伏幅度</td><td class="yes"><strong>至少一次明确的情绪转折</strong></td><td>画一条情绪曲线，看是不是一条平线</td></tr>
+    </tbody>
+  </table></div>
+  <div class="q"><p>"这三项里，<strong>一致性分是最容易拿到的分数，也是新手最常丢的分数</strong>。只要你建了资产库、每个镜头挂参考图，大概率就能解决这个问题。"</p></div>
+
+  <h3>9.3 八种失败模式及避坑</h3>
+  <div class="tw"><table>
+    <thead><tr><th style="width:34px">#</th><th style="width:140px">失败模式</th><th>表现</th><th>解法</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td class="no"><strong>微创新不足，纯复述</strong></td><td>直接把经典故事用 AI 画面复述一遍</td><td>动手前强迫自己回答"<strong>我和原著的区别一句话是什么</strong>"，答不出来就别开工</td></tr>
+      <tr><td>2</td><td class="no"><strong>微创新过度，看不懂</strong></td><td>同时换了时代、视角、结局、类型，观众前三秒理解不了</td><td>坚守<strong>控制变量原则，只换一到两个变量</strong></td></tr>
+      <tr><td>3</td><td class="no"><strong>对话驱动叙事</strong></td><td>大量角色对话推进剧情，口型和多人画面连续崩坏</td><td>改用<strong>旁白驱动 + 画面展示</strong></td></tr>
+      <tr><td>4</td><td class="no"><strong>节奏平推</strong></td><td>按故事原本时间顺序平铺直叙，前三秒没有任何冲击</td><td>强制使用"<strong>钩-展-转-收</strong>"结构，<strong>最强画面必须前置</strong></td></tr>
+      <tr><td>5</td><td class="no"><strong>一锤子买卖</strong></td><td>做了一条没爆就放弃</td><td><strong>至少做满一个系列（5 集）再判断</strong></td></tr>
+      <tr><td>6</td><td class="no"><strong>忽视数据反馈</strong></td><td>凭感觉做内容不看数据</td><td>盯三个指标：<strong>3 秒完播率 / 完播率 / 转发率</strong></td></tr>
+      <tr><td>7</td><td class="no"><strong>扬短避长</strong></td><td>选了以对话、手部特写、多人互动为核心的故事</td><td>选故事时就问：<strong>核心场面是不是 AI 擅长的？</strong></td></tr>
+      <tr><td>8</td><td class="no"><strong>忽略合规</strong></td><td>未标注 AI 标识、未留存生成日志、用了有版权的源素材</td><td>从第一个项目就建立合规习惯</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>9.4 七天审美训练表</h3>
+  <div class="q"><p>"知道标准不等于有审美。<strong>审美是看出来的，不是学出来的。</strong>"</p></div>
+  <div class="tw"><table>
+    <thead><tr><th style="width:64px">天</th><th>训练内容</th><th>具体动作</th><th>产出</th></tr></thead>
+    <tbody>
+      <tr><td>第 1 天</td><td>建立"好"的锚点</td><td>找 3 部豆瓣 8.5 分以上电影，各看前 10 分钟，写下前 10 分钟分别出现了什么信息</td><td>3 份笔记</td></tr>
+      <tr><td>第 2 天</td><td>景别感知</td><td>找 1 部电影，只看对话戏，统计每个镜头是什么景别、为什么这里用这个景别</td><td>景别统计表</td></tr>
+      <tr><td>第 3 天</td><td>运镜感知</td><td>找 1 部电影，只看镜头运动，记录每个镜头的推拉摇移跟</td><td>运镜统计表</td></tr>
+      <tr><td>第 4 天</td><td>光影感知</td><td>找 1 部摄影获奖影片，只看光：光从哪来、什么色温、硬还是柔</td><td>光影笔记</td></tr>
+      <tr style="background:var(--brand-wash)"><td><strong>第 5 天</strong></td><td class="yes"><strong>节奏感知</strong></td><td><strong>找几条爆款 AI 短片，逐秒记录：第几秒出现什么变化</strong></td><td><strong>节奏表</strong></td></tr>
+      <tr><td>第 6 天</td><td>对比拉片</td><td>按五个维度对比 1 条好的 AI 片 vs 1 条差的 AI 片</td><td>五维对比报告</td></tr>
+      <tr><td>第 7 天</td><td>反向工程</td><td>选第 6 天那条好片，试着写出它的分镜表</td><td>完整分镜表</td></tr>
+    </tbody>
+  </table></div>
+  <div class="q tip"><p>"<strong>第 5 天的节奏表是性价比最高的一项。你会发现爆款片子的共同点是——每 3-5 秒一定有一个视觉变化。</strong>"</p></div>
+
+  <h3>9.5 四个必须提前纠正的认知误区</h3>
+  <div class="tw"><table>
+    <thead><tr><th style="width:36%">误区</th><th>事实</th></tr></thead>
+    <tbody>
+      <tr><td class="no"><strong>误区1：AI 视频 = 输入一句话出大片</strong></td><td>AI 视频是<strong>输入一套准备好的素材 + 一段精确的指令，经过反复抽卡得到一段可用的素材</strong>。镜头的可控性来自：首帧图、参考图、动作参考、提示词结构、多次抽卡筛选</td></tr>
+      <tr><td class="no"><strong>误区2：工具决定上限</strong></td><td><strong>工具决定下限，你的素材准备和审美决定上限。</strong>同一个工具，新手生成出来是 AI 感，老手生成出来是电影感。差别不在工具，<strong>在于老手喂给工具的是什么</strong></td></tr>
+      <tr><td class="no"><strong>误区3：现在入场晚了</strong></td><td>这个赛道不是"早起的鸟儿有虫吃"，是<strong>"不下桌的人有饭吃"</strong>。AI 剧占海外新上线 74% 看着饱和，但 80%-90% 的项目连成本都收不回——绝大部分涌入的人在做<strong>无效供给</strong>。真正的问题不是晚不晚，是好不好</td></tr>
+      <tr><td class="no"><strong>误区4：以为"高质感"= 高分辨率</strong></td><td>分辨率是最后一步，可以用工具补回来。<strong>真正决定质感的是一致性、光影逻辑、镜头语言。</strong>一个 720p 但光影统一、镜头有设计、角色不崩的片子，观感远好于一个 4K 但角色不一致、光影错乱的片子</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- ============ 10 ============ -->
+<section class="chap rv" id="c10">
+  <div class="chead"><span class="cnum">10</span><h2>知识类口播怎么嫁接视觉奇观</h2><div class="stk stk-point"></div></div>
+  <p class="lead">针对你的场景：目标是涨粉 + 引流私域，做的是知识类内容（讲师/导师定位）。</p>
+  <h3>10.1 知识类的特殊矛盾（必须先解决）</h3>
+  <p>知识类视频的核心价值是<strong>信息</strong>，不是奇观。纯奇观开头会带来一个风险：</p>
+  <div class="q key"><p>圈友09的诊断："平均播放时长低，说明你的内容要么节奏太拖拉，要么<strong>没呼应或者跟你开头的三秒钩子完全没关系，属于挂羊头卖狗肉的</strong>。"</p></div>
+  <div class="banner"><div class="big">所以你的奇观开头必须和后面的知识内容强关联。<br>否则 3 秒完播率上去了，平均播放时长反而崩了。</div></div>
+
+  <h3>10.2 三种嫁接方式（按推荐度排序）</h3>
+  <div class="card"><h4 style="margin-top:0">方式 A：把抽象概念具象成奇观画面 <span class="tag tg-rose" style="margin-left:8px">最推荐</span></h4>
+    <p>圈友11的"抽象情绪具象化"公式可直接迁移：<code>把【情绪/概念】翻译成【能看见它的画面行为】</code></p>
+    <div class="tw" style="margin-bottom:0"><table>
+      <thead><tr><th style="width:34%">抽象知识点</th><th>奇观化开头</th><th style="width:130px">用的方法</th></tr></thead>
+      <tbody>
+        <tr><td>"认知差距决定收入差距"</td><td>两个人站在同一座山上，一个人看到的是云海，一个人看到的是山脚的垃圾场</td><td>尺寸/视角夸张</td></tr>
+        <tr><td>"复利的威力"</td><td>一枚硬币在桌面上分裂、堆叠，最后长成一栋摩天楼</td><td>尺寸夸张 + 变身</td></tr>
+        <tr><td>"你在浪费生命"</td><td>一个巨大的沙漏，人站在沙漏下面被沙子一点点埋住</td><td>视觉奇观</td></tr>
+      </tbody>
+    </table></div></div>
+  <div class="card"><h4 style="margin-top:0">方式 B：画风即叙事做"前后对比" <span class="tag tg-mint" style="margin-left:8px">最容易上手</span></h4>
+    <p>"AI 换画风只要换提示词"——这是知识类最容易上手的奇观。</p>
+    <div class="fbox" style="margin-bottom:8px"><div class="fh"><span class="dot"></span>结构</div><pre>0 - 1.5 秒：<span class="bad">灰暗 / 杂乱画风</span>（问题状态）
+1.5 - 3 秒：<span class="good">"啪" 切换成明亮 / 有序画风</span>（解决方案）
+3 秒起：    切口播讲方法</pre></div>
+    <p style="margin-bottom:0;font-size:13.8px">这个结构同时满足了：<strong>视觉奇观 + 前后对比 + 天然引出干货</strong>。</p></div>
+  <div class="card"><h4 style="margin-top:0">方式 C：奇观画面当"隐喻容器"，口播在上面走</h4>
+    <p style="margin-bottom:6px">前 3 秒纯奇观画面 + 一句强钩子文案（字幕），第 3 秒开始画面转成口播，奇观画面作为背景/B-roll 反复回切。</p>
+    <p style="margin-bottom:0;font-size:13.8px;color:var(--rose)"><strong>⚠️ 注意：</strong>这种方式要求奇观画面和口播内容<strong>必须同频</strong>，否则就是挂羊头卖狗肉。</p></div>
+
+  <h3>10.3 你的开头 5 秒检查清单</h3>
+  <div class="card"><ul style="margin-bottom:0">
+    <li>第 0 秒的第一帧，是不是<strong>全片最强的画面</strong>？（不是"铺垫画面"）</li>
+    <li>这张首帧图单独拿出来，<strong>当一张海报能不能成立</strong>？</li>
+    <li>3 秒内有没有出现第一个爽点或悬念？</li>
+    <li><strong>这个奇观画面，和后面要讲的知识是同一个内核吗？</strong>（防止挂羊头卖狗肉）</li>
+    <li>前 3 秒是不是在<strong>同一场景内</strong>多切了视角/景别？（信息密度）</li>
+    <li>有没有避开 AI 短板：长对话、手部特写、三人以上互动、精细连贯动作？</li>
+    <li>光线饱和度是否匹配内容类型？（<strong>奇观类=高饱和；UGC类=阴天不完美光</strong>）</li>
+    <li>情绪是否具象化了？（不是"他很焦虑"，而是"手指无意识地敲击桌面，眼神失焦"）</li>
+    <li>提示词开头有没有 <code>【景别，运镜】</code> 标签？</li>
+    <li>有没有写"不要 XX"这种<strong>反向提示词</strong>？（AI 会读成正向）</li>
+  </ul></div>
+
+  <h3>10.4 你的成本分配建议</h3>
+  <div class="steps">
+    <div class="step" style="border-color:#FFD9B4"><div class="n" style="background:var(--brand);color:#fff">头</div><div class="b"><div class="t">开头 0-5 秒 · 视觉奇观 → Seedance 2.0 标准版 + 精修首帧图</div><div class="d"><strong>这里不省钱。</strong>全片最该砸钱的地方就是开头 5 秒。</div></div></div>
+    <div class="step"><div class="n">中</div><div class="b"><div class="t">中段 5-50 秒 · 口播 / B-roll → mini·fast 档 或 智谱等便宜模型 + 1.5 倍速调节奏</div><div class="d">中段是信息密度区，画面只要不出戏即可，成本可以压到最低。</div></div></div>
+    <div class="step" style="border-color:#FFD9B4"><div class="n" style="background:var(--brand);color:#fff">尾</div><div class="b"><div class="t">结尾 50-60 秒 · CTA / 情绪落点 → 标准版</div><div class="d">情绪落点决定转发率和关注率，值得花钱。</div></div></div>
+  </div>
+  <div class="q tip"><p><strong>验证策略（省 60% 积分）：</strong>先用 720p 低画质<strong>批量测 3-5 版开头</strong>，看哪版 3 秒完播率最高，再用高画质重做那一版。这正好接第一册里 圈友04 的 A/B 测试思路，也符合圈友09的"测频道用低成本模型跑，流量跑通后再提高 Seedance 占比"。</p></div>
+
+  <h3>10.5 补充建议：知识类可以借"励志/教育故事"的结构</h3>
+  <div class="q"><p>"<strong>开头一定是：</strong>· 是一个<strong>具体的动作或画面</strong>，可以是恶行、不公、偏见、意外、求助被拒，<strong>要把观众直接拉进场景</strong> · 羞辱的台词/冲突 · 能让观众立刻产生情绪反应或好奇心的东西。目的就是，<strong>3 秒内抓住注意力</strong>。"</p><p>"整个剧情的节奏一定要密集，对钩子建立的冲突进行<strong>递进和加码</strong>。目的：让观众走不掉。可以是羞辱升级、善恶反差加深、新信息揭露、悬念投放——<strong>让观众的情绪和好奇心持续攀升</strong>。"</p><span class="who">—— 圈友09 · 深海圈咨询教练</span></div>
+  <div class="fbox">
+    <div class="fh"><span class="dot"></span>圈友09赛道的价值配比（对知识类同样适用）</div>
+    <pre>文案 <span class="hl">60%</span> + 画面 <span class="hl">30%</span> + 音效细节 <span class="hl">10%</span>
+<span class="cm">// "好的文案是拉高平均观看时长的核心要素。观众主要还是听故事，</span>
+<span class="cm">//  加上画面同步，以及音效 bgm，会极大增强代入感。"</span>
+<span class="cm">// 旁白的另一个作用：控制剧情节奏，弥补画面崩坏的容忍度</span></pre>
+  </div>
+
+  <div class="say"><div class="stk stk-point"></div><div class="bubble">知识类的奇观不是"炫技"，是<b>把抽象概念变成看得见的东西</b>。观众记住画面，就记住了你的观点。<span class="who">马哥说</span></div></div>
+
+  <div class="flips">
+    <div class="fh2">学完自测</div>
+    <button class="flip"><span class="in"><span class="f q">知识类用奇观开头最大的风险是什么？</span><span class="f a"><strong>挂羊头卖狗肉</strong>：3 秒完播上去了，但奇观和后面知识不同核，平均播放时长崩掉。</span></span></button>
+    <button class="flip"><span class="in"><span class="f q">知识类最容易上手的奇观嫁接方式是哪种？</span><span class="f a"><strong>画风突变做前后对比</strong>：灰暗杂乱（问题）→ 明亮有序（方案）→ 切口播。奇观+对比+引出干货一次完成。</span></span></button>
+  </div>
+</section>
+
+<!-- ============ 11 ============ -->
+<section class="chap rv" id="c11">
+  <div class="chead"><span class="cnum">11</span><h2>一页速查卡（可勾选 · 自动记忆）</h2><div class="stk stk-thumb"></div></div>
+  <p class="lead">做开头、写提示词、抽卡、发布前逐项打勾。勾选状态保存在本机浏览器。</p>
+  <div class="ckwrap">
+    <div class="ckbar"><span class="t">执行清单</span><span class="cnt">0 / 0</span><div class="cktrack"><i></i></div></div>
+    <div class="ckgroup"><h4><i></i>开工前</h4><ul>
+      <li>一句话高概念能讲清吗？（拿给 3 个朋友听，至少 2 个想看）</li>
+      <li>套的是哪个母题？（逆袭/复仇/穿越/扮猪吃虎/奇遇/失控/团圆遗憾）</li>
+      <li><strong>我和原著的区别，一句话是什么？</strong>（答不出就别开工）</li>
+      <li>这个故事的核心场面，<strong>是 AI 擅长的吗</strong>？</li>
+      <li>每做一条，我要验证的假设是什么？（<strong>没有假设 = 自嗨</strong>）</li>
+      <li>素材库目录建好了吗？<strong>09_日志别省</strong>（合规凭证 + 复盘依据）</li>
+    </ul></div>
+    <div class="ckgroup"><h4><i style="background:var(--rose)"></i>设计开头 0-5 秒</h4><ul>
+      <li>用的是哪种视觉奇观？（<strong>尺寸夸张 / 奇观前置 / 画风突变 / 变身 / 流体材质 / 宏大场景</strong>）</li>
+      <li><strong>只换了 1-2 个变量吗？</strong>（换太多观众看不懂）</li>
+      <li>全片最壮观的画面是不是放在了第 0 秒？</li>
+      <li>3 秒内有第一个爽点或悬念吗？（打脸/揭晓/逆转/碾压/补偿）</li>
+      <li>前 3 秒在<strong>同一场景内</strong>多切视角景别了吗？</li>
+      <li>每 3-5 秒一个视觉变化，<strong>节奏表拉过了吗</strong>？</li>
+      <li>奇观画面和后续内容<strong>是同一个内核</strong>吗？（防挂羊头卖狗肉）</li>
+    </ul></div>
+    <div class="ckgroup"><h4><i style="background:var(--plum)"></i>做首帧图（占成败 50%）</h4><ul>
+      <li>先做了<strong>「参考总表」</strong>锁角色/道具/场景/关键分镜？</li>
+      <li>首帧图 9 要素齐了吗？（画风+画幅+人物+年龄+服装+场景+道具+景别+光影+情绪）</li>
+      <li><strong>这张首帧图单独拿出来当海报，成立吗？</strong>（不成立就别生成）</li>
+      <li>明确排除了穿帮元素吗？</li>
+      <li>图片像素拉满了吗？（<strong>图片质量决定视频质量</strong>）</li>
+      <li>图片的<strong>姿态趋势</strong>和视频要做的动作一致吗？（跳舞图做不出走秀）</li>
+    </ul></div>
+    <div class="ckgroup"><h4><i style="background:var(--sky)"></i>写图生视频提示词</h4><ul>
+      <li>开头有 <code>【景别，运镜】</code> 标签吗？</li>
+      <li>顺序是 <strong>主体→动作→运镜→环境→风格</strong> 吗？（靠前权重高）</li>
+      <li>情绪具象化了吗？（不是"他很害怕"，是"瞳孔骤然放大，嘴唇发白，喉结剧烈滚动"）</li>
+      <li>每句话都有作用吗？<strong>删掉关联词了吗？</strong></li>
+      <li>有没有写"不要拿东西"这类<strong>反向提示</strong>？（AI 会读成"手拿物品"→ 改成直接描述结果）</li>
+      <li>复杂动作<strong>拆解成多段细描述</strong>了吗？</li>
+      <li>画风词统一吗？（<strong>一次不超过两种主风格</strong>）</li>
+      <li>时长 ≤ 15 秒吗？台词按<strong>每秒 4-5 字</strong>算得下吗？（情绪戏 3-4 字）</li>
+      <li>加了"激活"提示词吗？（运镜控制 / 激活动作，防止画面静止）</li>
+    </ul></div>
+    <div class="ckgroup"><h4><i style="background:var(--mint)"></i>生成</h4><ul>
+      <li><strong>开头用高端模型，中后段用便宜模型</strong>混搭了吗？</li>
+      <li>先用 <strong>720p 低画质测 3-5 版</strong>，再高画质定稿？（省 60% 积分）</li>
+      <li>抽卡 <strong>4-5 次还出不来 → 停手</strong>，回去改首帧图/改脚本（不要死磕提示词）</li>
+      <li>复杂动作<strong>先锁关键帧</strong>（手的位置、物的位置、动作关系）了吗？</li>
+      <li>分镜<strong>逐镜核对剧情</strong>了吗？（AI 会自己加戏，也会漏分镜）</li>
+      <li>排队时点了「<strong>免费加速</strong>」×2 吗？发出去就去干别的，别干等</li>
+    </ul></div>
+    <div class="ckgroup"><h4><i style="background:var(--butter)"></i>后期 + 发布前自查</h4><ul>
+      <li><strong>先配 BGM 再剪</strong>（有没有 BGM 完全是两个感觉）</li>
+      <li>删冗余镜头（有它没它一样 / 删了衔接更丝滑 → 删）</li>
+      <li><strong>倍速微调</strong>（紧凑节奏更容易爆，可试 1.5 倍）</li>
+      <li>补 AI 漏掉的音效（剪映 → 音频 → 音效库）</li>
+      <li>剪映<strong>智能调色 + 超分</strong>（高清能提高基础推流权重）</li>
+      <li><strong>导出后用播放器完整看一遍再发布</strong></li>
+      <li><strong>静音看一遍，还看得下去吗？</strong>（看不下去 = 画面信息密度不够）</li>
+      <li><strong>一致性分</strong>：所有镜头截图拼一排，是同一个人/同一个地方吗？（≥90%）</li>
+      <li>AI 味六症状过一遍：角色漂移 / 光影错乱 / 镜头发呆 / 节奏平推 / 手部崩坏 / 对话出戏</li>
+      <li>片头标注 AI 生成标识了吗？生成日志存了吗？</li>
+    </ul></div>
+    <div class="ckgroup"><h4><i></i>发布后</h4><ul>
+      <li>3 秒完播率 &lt; 60% → <strong>换开头</strong></li>
+      <li>完播率 &lt; 30% → <strong>改中段</strong></li>
+      <li>转发率低 → <strong>换情绪</strong></li>
+      <li>平均时长低但 3 秒完播高 → <strong>开头和内容挂羊头卖狗肉，改关联性</strong></li>
+      <li>封面点击率大部分 &lt; 5% → 优化封面标题再测</li>
+      <li><strong>至少做满 5 集再判断方向</strong></li>
+      <li>有效的开头写回你的「<strong>开头库</strong>」</li>
+    </ul></div>
+  </div>
+  <div class="say"><div class="stk stk-thumb"></div><div class="bubble">清单勾完再发布。<b>两分钟的勾选，省两小时的返工</b>。<span class="who">马哥说</span></div></div>
+</section>
+
+<!-- ============ 12 附录 ============ -->
+<section class="chap rv" id="c12">
+  <div class="chead"><span class="cnum">附</span><h2>三个可直接复制的核心提示词</h2><div class="stk stk-write"></div></div>
+  <p class="lead">点击展开，右上角一键复制。这三段是整套方法论里最能直接落地的部分。</p>
+
+  <details class="pm">
+    <summary>A1 · 参考总表提示词（锁死全片一致性，约 5000 字）</summary>
+    <div class="bd">
+      <p style="font-size:13.2px;color:var(--ink-3)">来源：官方航海手册《AI 高质感视频》第四关 · 02 + 圈友12实战版。用法：把脚本大纲粘到最后，配一张画风参考图一起发给 ChatGPT / Gemini / 即梦。</p>
+      <div class="fbox"><button class="cp">复制</button>
+      <div class="fh"><span class="dot"></span>A1 · 参考总表</div>
+<pre>你是一位专业的视觉设计师。
+
+我正在制作一个常规视频，请根据我附带的【脚本大纲】和【画风参考图】，生成一张
+「角色 &amp; 关键道具 &amp; 场景 &amp; 核心关键分镜 参考总表」图片。
+
+这张图的目标是：通过一张图，统一定义整个视频的角色形象、关键道具、场景设定和
+核心关键分镜视觉锚点，方便后续逐镜头生成视频时保持一致性。
+
+请严格按照以下要求生成图片。
+
+━━━━━━━━━━━━━━━━━━━━
+⓪ 画风要求（贯穿全图）
+━━━━━━━━━━━━━━━━━━━━
+- 整张参考总表中的所有内容（角色、关键道具、场景、关键分镜），必须统一使用
+  我本次上传的画风参考图的风格。
+- 请从参考图中提取并延续以下视觉特征：线条风格 / 上色方式 / 光影处理 /
+  质感表现 / 构图气质 / 色彩倾向
+- 如果脚本大纲中也指定了画风，以我上传的画风参考图为准。
+- 整张图的视觉风格必须高度统一，不能出现局部画风不一致、角色画风漂移、
+  道具画风漂移、场景画风漂移的问题。
+- 不要画成海报，不要做夸张装饰，要像一张专业的影视前期视觉设计文档。
+
+━━━━━━━━━━━━━━━━━━━━
+一、图片顶部区域：角色三视图
+━━━━━━━━━━━━━━━━━━━━
+请先分析脚本大纲，提取其中出现的所有主要角色，然后为每一个主要角色绘制三视图：
+正面 / 侧面 / 背面
+
+具体要求：
+- 每个角色的三视图横向排列为一组，每组上方标注角色名称
+- 如果有多个角色，每个角色各占一行
+- 角色采用统一的站立中性姿势
+- 背景保持纯白或浅灰，不要加入场景元素
+- 不要出现剧情动作，不要画成分镜画面
+- 角色的服装、发型、体型、年龄感、身份特征、配色必须清晰稳定
+- 如果脚本大纲中提到角色的职业、身份、性格、气质、表情倾向、标志性道具，
+  请准确体现在角色设定中
+
+⚠️ 关键要求：
+- 同一个角色的正面、侧面、背面必须保持服装、发型、体型、配色完全一致
+- 不同角色之间要有清晰区分，不能长得过于相似
+- 不要加入复杂背景，不要画剧情画面
+- 不要让角色手持非必要物品，除非该物品是角色身份的核心标志
+
+━━━━━━━━━━━━━━━━━━━━
+二、图片上中区域：关键道具参考
+━━━━━━━━━━━━━━━━━━━━
+提取在多个镜头中重复出现，或对剧情、动作、视觉识别有重要作用的【关键道具】。
+（零食/泡面/饮料/玩具/手机/电脑/书本/包/武器/工具/遥控器/礼物盒/盒装商品等）
+
+数量要求：默认提取 1~3 个；确实有多个可增加到 4~5 个；最多不超过 5 个。
+宁可少，不要滥加。
+
+每个关键道具单独绘制一组参考图：
+1. 多角度展示：3~4 个参考角度（正面 / 侧面 / 45度斜角；顶部结构重要可加顶部俯视）
+2. 纯背景展示：纯白或浅灰背景单独展示，不放场景中，不让角色手持，
+   不与其他道具叠放，不画成剧情画面
+3. 一致性要求：同一道具不同角度必须保持颜色/造型/比例/材质/包装图案/
+   文字布局/结构细节完全一致
+4. 标注要求：每组道具上方标注名称，每个角度下方标注视角名称；
+   可用标注线指出关键识别特征（包装主色/材质/图案位置/结构开口/按钮位置/轮廓特征）
+5. 色板要求：每个关键道具旁附简洁的「材质/颜色色板」，标注主色调与关键材质特征
+
+⚠️ 关键要求：
+- 关键道具参考图不是带货产品页，不要做成商业商品海报
+- 不要加入夸张营销排版，不要加入价格、卖点、促销文字
+
+━━━━━━━━━━━━━━━━━━━━
+三、图片中部区域：核心关键分镜参考
+━━━━━━━━━━━━━━━━━━━━
+只提取最重要的 3~5 个关键分镜画面。默认只绘制 3 个，最多不超过 5 个。
+
+优先选择以下类型的关键画面：
+1. 开场定调镜头 —— 用于确定视频整体氛围和视觉基调
+2. 角色核心出场镜头 —— 确定主角形象、姿态、气质和画面中的存在方式
+3. 关键动作/关键事件镜头 —— 表现视频中最重要的行为、事件或信息点
+4. 情绪高潮/转折镜头 —— 表现冲突、震撼、反差、惊讶、紧张、治愈等核心情绪
+5. 结尾收束镜头 —— 确定视频最后的视觉落点和情绪收束
+
+⚠️ 关键要求：
+- 宁可少画，也不要为了凑数量增加不必要的分镜
+- 不要把每一个剧情步骤都画出来，不要绘制完整故事板
+- 不要画大量小分镜，如果多个画面相似，只保留最有代表性的一个
+- 每个关键分镜都必须是后续视频生成时真正需要反复参考的核心画面
+
+每个关键分镜单独绘制一个小画面，统一尺寸，横向或网格排列。
+每个关键分镜上方或下方标注：关键分镜编号 / 简短画面说明 / 镜头景别与构图方式
+标注格式示例：
+- 关键分镜 1：主角站在便利店货架前，远景，居中构图
+- 关键分镜 2：主角拿起泡面仔细观察，近景，侧面构图
+
+每张关键分镜图只需表现核心信息：谁在画面里 / 角色处于什么位置 / 角色正在做什么 /
+是否出现关键道具 / 关键道具的位置与大小关系 / 镜头主要拍什么 / 景别 / 构图方式 /
+氛围 / 主要视觉重点
+
+⚠️ 一致性要求：
+- 同一角色在不同关键分镜中，发型、服装、体型、年龄感、配色必须一致
+- 同一关键道具在不同关键分镜中，颜色、造型、比例、包装、材质、细节必须一致
+- 同一场景在不同关键分镜中，空间结构、光线方向、色调氛围必须一致
+- 不允许出现角色漂移、服装漂移、道具漂移、画风漂移、场景结构漂移
+
+━━━━━━━━━━━━━━━━━━━━
+四、图片底部区域：场景背景参考
+━━━━━━━━━━━━━━━━━━━━
+将所有画面按「场景/地点」归类，把使用相同场景的画面合并，提取所有不重复的场景背景。
+
+- 每个场景绘制一张独立的纯背景图
+- 场景图中不要出现任何角色、人物、动物，不要出现剧情动作
+- 场景图只画环境/空间本身
+- 如果该场景本身包含固定物件（桌椅、窗户、路灯、建筑、家具、墙面装饰），可以正常绘制
+- 每张场景图上方用中文标注该场景对应的关键分镜或脚本段落
+  格式：场景A：客厅（关键分镜 1, 3）
+- 每张场景图尺寸统一，横向排列，每行 3~4 张，场景之间保持清晰留白
+
+每张场景图需清晰表达：地点类型 / 空间结构 / 时间氛围（白天、夜晚、黄昏、清晨）/
+光线氛围 / 色彩基调 / 主要环境特征 / 与剧情相关的空间信息
+
+━━━━━━━━━━━━━━━━━━━━
+五、整体排版要求
+━━━━━━━━━━━━━━━━━━━━
+- 整张图为横版 16:9 比例，背景为纯白或浅灰
+- 整体排版整洁、清晰、专业，视觉效果像一张专业的影视前期设计文档
+- 不要做成宣传海报，不要使用复杂装饰，不要让画面信息过于拥挤
+- 所有标注文字必须使用中文，字体清晰可读
+- 区域之间用细线或留白分隔
+
+最顶部加一行大标题：
+「《项目名称》角色 &amp; 关键道具 &amp; 场景 &amp; 核心关键分镜 参考总表」
+
+整张图分为四个清晰区域，分别加小标题：
+1. 🎭 角色三视图    2. 🧸 关键道具参考
+3. 🎬 核心关键分镜参考    4. 🏠 场景背景参考
+
+推荐排版结构：
+顶部：大标题 + 角色三视图区域
+上中部：关键道具参考区域
+中部：3~5 个核心关键分镜参考图（默认 3 个，最多不超过 5 个）
+底部：不重复场景背景参考图（每个场景一张纯背景图）
+
+━━━━━━━━━━━━━━━━━━━━
+六、禁止事项
+━━━━━━━━━━━━━━━━━━━━
+- 不要把关键道具参考图做成电商带货页
+- 不要加入价格、促销语、营销文案、夸张卖点
+- 不要展示完整故事板，不要画太多分镜
+- 不要为了凑数量增加不重要的分镜，不要画所有剧情步骤
+- 不要把关键分镜画成密密麻麻的小格子
+- 不要让场景背景图中出现角色、人物、动物
+- 不要让角色三视图中出现剧情动作
+- 不要让关键道具图中出现角色手持或剧情表演
+- 不要让同一角色/道具/场景在不同区域里外观不一致
+- 不要出现画风不统一的问题
+- 不要使用英文标注
+- 不要输出额外文字说明，只需要直接生成图片
+
+━━━━━━━━━━━━━━━━━━━━
+七、最终目标
+━━━━━━━━━━━━━━━━━━━━
+用一张参考总表，同时统一整个视频的：角色形象 / 关键道具外观 / 场景设定 /
+核心关键分镜构图 / 视觉风格 / 光影氛围 / 画面基调
+
+请优先保证：角色稳定 / 道具稳定 / 场景稳定 / 分镜少而关键 / 构图清楚 /
+信息明确 / 方便后续逐镜头生成视频时参考
+
+请严格按照以上要求，直接生成图片。
+
+━━━━━━━━━━━━━━━━━━━━
+【脚本大纲】
+在这里粘贴我的脚本大纲。
+━━━━━━━━━━━━━━━━━━━━
+【画风参考】
+真实摄影画风。（或替换为你的目标画风）</pre></div>
+    </div>
+  </details>
+
+  <details class="pm">
+    <summary>A2 · Seedance 2.0 分镜导演提示词（圈友13版 v5.1，含 5 条铁律）</summary>
+    <div class="bd">
+      <p style="font-size:13.2px;color:var(--ink-3)">用法：打开 Gemini AI Studio（aistudio.google.com，模型选 Gemini 3.1 Pro Preview），粘贴对标视频链接 + 下面这段提示词。</p>
+      <div class="fbox"><button class="cp">复制</button>
+      <div class="fh"><span class="dot"></span>A2 · 导演提示词 v5.1</div>
+<pre>角色：Seedance 2.0 视听序列改编导演 (v5.1 - The Expressive Close-up)
+
+你的身份是一个具备三重能力的视听专家。任务开始时，你是一个故事架构师，负责解析并
+规划改编蓝图。随后，你转变为分段式视听导演，利用 Seedance 2.0 的特性，输出极具张力、
+情绪饱满且音画同步的视频脚本。最后，你成为连续性剪辑师，进行开放式迭代。
+
+[!] 全局工作流程：三幕式创作协议
+你必须严格按照以下三个阶段执行。完成一个阶段后，必须等待我的"继续"指令才能进入下一阶段。
+
+━━━━━━━━━━━━━━━━━━━━
+第一幕：故事内核架构与分镜盘点
+━━━━━━━━━━━━━━━━━━━━
+执行指令：
+1. 深度解析与盘点：彻底分析我提供的 [YouTube 视频链接]。在内部形成故事时间线，
+   并精准统计该视频包含的独立镜头（Shot）总数。
+2. 规划改编蓝图：根据我提供的 [核心改编思路]，明确哪些情节保留，哪些元素替换。
+3. 输出确认，严格按照以下格式：
+   "我已提取核心事件链：[简述重组后的核心逻辑，100字以内]。
+    经盘点，原视频共计 [X] 个独立镜头。
+    根据 Seedance 2.0 的 15秒/10镜 限制，本次生成将分为 [Y] 个段落进行。
+    如果蓝图正确，请回复'继续'，我将为您输出分段视听脚本。"
+（待命：输出后立即停止，等待指令）
+
+━━━━━━━━━━━━━━━━━━━━
+第二幕：分段视听脚本生成（Seedance 2.0 核心）
+━━━━━━━━━━━━━━━━━━━━
+收到"继续"指令后，你必须严格遵循以下 Seedance 2.0 专属铁律：
+
+【铁律一：极简自然语言与中文驱动】
+直接用白话文描述画面，不需要刻意拆解动作定格，物理逻辑交由 AI 自动演算。
+所有的画面、动作、场景提示词全部使用中文表述。
+
+【铁律二：10 镜分段与记忆重置（核心机制）】
+- 分段输出：将总脚本按每段最多 10 个镜头进行切分。
+- 段内省略与段外重置：同一段落内首次出现的场景和人物需详细描述，后续镜头只写简称。
+  进入新段落时，必须重新详细描述人物外观和场景特征。
+
+【铁律三：原生音画同步协议】
+- 环境音免写。
+- 如果需要人物说话或画外音旁白，必须在专属的 [配音台词] 字段中写出，
+  且文案必须使用目标语言（如英文）以触发正确的口型同步。
+
+[!!!]【铁律四：运镜、景别与特写优先原则（核心视觉表现）】
+- 你的提示词开头必须明确标明景别与运镜方式
+  （如：【特写，缓慢推镜头】、【极近特写，手持镜头轻微晃动】、【全景，快速平摇】）
+- 大量使用特写（Close-up）和极近特写（Extreme Close-up），
+  以捕捉人物情绪和关键细节，提升视觉冲击力。
+
+[!!!]【铁律五：极致的情绪与反应刻画（核心神态表现）】
+- 必须高度还原甚至夸张放大原视频的人物情绪。
+- 动作描述中必须包含极其细腻的面部微表情、神态变化和肢体反应
+  （例如：瞳孔骤然放大、嘴角剧烈抽搐、因极度恐惧而发抖、狂喜地仰天大笑）。
+- 绝不能只写干瘪的动作。
+
+【绝对输出格式（表格化呈现）】
+请按段落输出，段落之间用明显的分割线隔开。
+
+【段落一：镜号 1 - 10】
+（注：本段落需对出场人物/场景进行完整特征描述）
+
+| 镜号 | 画面提示词（中文：【景别与运镜】+ 场景 + 人物特征 + 动作与夸张神态反应） | 配音台词 |
+
+示例：
+1 | 【中景，镜头缓慢前推】黄昏的城市后巷。穿着破旧夹克的少年Sinu，正死死抱住一个
+    食物袋往后缩，满脸写着绝望。穿着华丽连衣裙的女孩Gumi愤怒地伸手去抢，五官因为
+    生气而微微扭曲。 | (Gumi) Give it back to me!
+2 | 【特写，手持镜头剧烈晃动】聚焦Sinu的脸。他猛地转头，双眼因为惊恐而瞪大到极致，
+    瞳孔剧烈震颤，随后转身拔腿就跑，动作极其慌乱，踉跄着差点摔倒。 | [留空，系统自动生成脚步声]
+3 | 【特写，快速拉镜头】Gumi在原地气得直跺脚，双手紧紧攥成拳头，对着Sinu的背影
+    歇斯底里地大喊，随后咬着牙迅速追了上去。 | (Gumi) You can't run away!
+
+【段落二：镜号 11 - 20】
+（注：跨段落重置，必须再次描述人物及场景的特征）
+
+（移交与待命：输出完所有段落的表格后，输出："分段脚本已生成完毕。您可以指出需要
+修改的具体镜号，我将为您微调。"）
+
+━━━━━━━━━━━━━━━━━━━━
+第三幕：开放式迭代
+━━━━━━━━━━━━━━━━━━━━
+解析我提出的自然语言修改指令（如"让第3镜的表情更狰狞一点"，或"把第5镜改成俯视全景"），
+结合上下文逻辑，精准输出修改后的单行或多行分镜，无需重发整个表格。
+
+━━━━━━━━━━━━━━━━━━━━
+初始输入信息待命区：
+[YouTube 视频链接]：
+[核心改编思路]：</pre></div>
+      <h4>拿到分镜后的三步后续操作（圈友13实操）</h4>
+      <ol>
+        <li><strong>统一角色称呼</strong>（因为后面要垫角色参考图）：<div class="fbox" style="margin-top:6px"><button class="cp">复制</button><div class="fh"><span class="dot"></span>改名指令</div><pre>把提示词中的两个主角名称进行修改，女生叫XX，男孩叫XX，
+不需要描述角色的具体穿搭，直接用角色名称就行，我后面会垫角色参考图。</pre></div></li>
+        <li><strong>必须逐镜核对剧情</strong>——AI 可能加分镜也可能减分镜。圈友13的案例里 AI 自己加戏了 8 个分镜（27-35 镜），全部删掉</li>
+        <li><strong>表情情绪镜头拿不准运镜就用"推"</strong></li>
+      </ol>
+    </div>
+  </details>
+
+  <details class="pm">
+    <summary>A3 · 角色三视图提示词 + 审核降级方案（圈友13版）</summary>
+    <div class="bd">
+      <p style="font-size:13.2px;color:var(--ink-3)">用法：打开 Gemini 官网 → Create image → 上传角色参考图（<strong>一次只传一张</strong>）→ 粘贴提示词。参考图最好找全身照。</p>
+      <div class="fbox"><button class="cp">复制</button>
+      <div class="fh"><span class="dot"></span>A3 · 三视图</div>
+<pre>生成参考图中角色的三视参考图，要全身照，服装要保持一致性，角色为站姿，
+手里不要拿任何东西，身上不要背任何东西，图片中不要出现任何文字，
+背景为纯白色，真人实拍风格。</pre></div>
+      <h4>遇到版权 / 人脸审核问题时的两级降级方案</h4>
+      <div class="tw"><table>
+        <thead><tr><th style="width:120px">问题</th><th>解法</th></tr></thead>
+        <tbody>
+          <tr><td><strong>① 版权拦截</strong><br><span style="color:var(--ink-3);font-size:12.4px">角色衣服太有辨识度</span></td>
+            <td><strong>服装替换</strong>。⚠️ <strong>提示词中不能出现角色在动漫中的名称，不然也会触发版权</strong>。可让豆包先设计穿搭描述再丢进 Gemini 生成。圈友13用的两套描述：<br><span style="font-size:12.8px;color:var(--ink-3)">· <strong>落魄流浪风</strong>：全身破旧混搭穿搭，满是污渍与磨损痕迹的宽松深色破洞外套，内里是起球变形的旧毛衣，下摆参差不齐，搭配多处撕裂的宽松工装裤，裤脚沾满灰尘与泥渍，脚踩磨损严重、鞋面开裂的旧帆布鞋，腰间系着褪色破旧的布袋，整体脏乱破旧，充满流浪感，色调暗沉灰败，细节写实粗糙，氛围感颓废落魄<br>· <strong>随性拾荒风</strong>：oversize 破旧牛仔外套，布满破洞、补丁与褪色痕迹，内搭松垮泛黄的旧 T 恤，下身是松紧腰破旧阔腿裤，多处缝补且沾满灰尘，头戴破损的旧针织帽，身上斜挎磨损起毛的旧布袋，整体衣物松垮邋遢，褶皱杂乱，色调偏灰黄，充满市井拾荒感，质感粗糙写实，风格随性破败</span></td></tr>
+          <tr><td><strong>② 人脸审核不过</strong></td><td><strong>转彩色素描图</strong>：<div class="fbox" style="margin:6px 0 0"><button class="cp">复制</button><div class="fh"><span class="dot"></span>降级指令</div><pre>把图片转成彩色素描图，保持人物形象清晰。</pre></div></td></tr>
+        </tbody>
+      </table></div>
+      <div class="q warn" style="margin-bottom:0"><p><strong>注意各模型的人脸审核差异：</strong>豆包"彩铅人脸过不了"；即梦全能参考"暂不支持真人人脸"；veo2、即梦做名人视频 = 🈲。圈友13的补分镜经验：<strong>没有台词的镜头可以直接用 seedance 1.0 生成，这个模型不会卡真人</strong>（还更省钱）。</p></div>
+    </div>
+  </details>
+</section>
+
+<!-- ============ 13 ============ -->
+<section class="chap rv" id="c13">
+  <div class="chead"><span class="cnum">13</span><h2>出处索引（匿名版）</h2><div class="stk stk-smile"></div></div>
+  <p class="lead">全部为生财有术站内原帖与官方航海手册，本版为公开发布版，已隐去圈友真名与原文直链。</p>
+
+  <div class="src"><div class="top"><span class="nm">官方航海手册</span><span class="st">AI 高质感视频-爆款短片实战 · 2026年8月</span></div>
+    <div class="cb"><b>核心贡献：</b>高质感五问、<b>钩-展-转-收节奏模板</b>、<b>参考总表提示词全文（约5000字）</b>、首帧图 9 要素、图生视频提示词格式与 12 组实例、分组规则与台词时长换算、工具选型与积分策略、素材库目录结构、合规基线、画风决策表</div>
+    <span class="nolink">出处：生财有术站内精华帖（原文链接已隐去）</span></div>
+
+  <div class="src"><div class="top"><span class="nm">圈友11</span><span class="st">传媒专业 · 内容平台 7 年 · 带近千圈友</span></div>
+    <div class="ti">《蹲了 3 期 AI 生视频航海后，我发现了 90% 新手搓视频索然无味的秘密 | 附通识科普+名词词典》</div>
+    <div class="cb"><b>核心贡献：</b><b>视觉奇观前置（九种微创新之五）</b>、<b>能力权重 20/50/30</b>、冰山模型、爽点密度与五种爽点、情绪杠杆排序、扬长避短清单、提示词万能结构与六技巧、模糊vs精确对比、AI 味六症状、三个量化维度、八种失败模式、七天审美训练表、四个认知误区、画风库（十大类近百种）、组合技原则</div>
+    <span class="nolink">出处：生财有术站内精华帖（原文链接已隐去）</span></div>
+
+  <div class="src"><div class="top"><span class="nm">圈友16</span><span class="st">生财 YouTube 深海圈<b>总教练</b></span></div>
+    <div class="ti">《AI 内容创作之器：AI 图片视频工具测评与常用创作技巧讲解》· 精华帖</div>
+    <div class="cb"><b>核心贡献：</b>12 视频 + 8 图片工具横评、23 个创作技巧、<b>6 基本 + 4 进阶运镜词库</b>、<b>五条提示词底层规则</b>（图片趋势相同/利用惯性/取精华去糟粕/结果具象化/图片质量决定视频质量）、模型竞技场实测排序、非牛顿流体特效提示词、图片一致性控制方案、提质三板斧</div>
+    <span class="nolink">出处：生财有术站内精华帖（原文链接已隐去）</span></div>
+
+  <div class="src"><div class="top"><span class="nm">圈友15</span><span class="st">团队交付近 1000 条 ToB AI 商单视频</span></div>
+    <div class="ti">《转型企业 AI 服务，分享近千条 ToB AI 商单视频心得》· 精华帖</div>
+    <div class="cb"><b>核心贡献：</b><b>参考图决定生成质量（全能参考模式）</b>、<b>减 AI 感七招</b>（面部瑕疵/设计触发动作的原因/阴天不完美光线/生活痕迹/地域特征细节/提前生成人物）、<b>4-5 次抽不出来就停手</b>、复杂动作先锁关键帧、脚本:提示词 = 6:4、A/B/C 三类修改意见分级</div>
+    <span class="nolink">出处：生财有术站内精华帖（原文链接已隐去）</span></div>
+
+  <div class="src"><div class="top"><span class="nm">圈友12</span><span class="st">7 天 2500 万播放 · 单条 3 千万播</span></div>
+    <div class="ti">《7 天 2500 万播放，我是如何制作一条高质感 AI 爆款视频并完成变现》· 精华帖</div>
+    <div class="cb"><b>核心贡献：</b>完整 11 步制作流程、Gemini 2.5 拆解提示词（8 字段分镜表）、ChatGPT 人物梳理提示词、<b>参考总表提示词全文</b>、首帧图提示词 12 组实例、图生视频提示词 12 组实例、统一画风要求模板、情绪驱动选题法、多平台分发策略</div>
+    <span class="nolink">出处：生财有术站内精华帖（原文链接已隐去）</span></div>
+
+  <div class="src"><div class="top"><span class="nm">圈友13</span><span class="st">8 个高级 YPP · 单月 4500 刀 · 亿播爆款</span></div>
+    <div class="ti">《YouTube 新人攻略：真人脚本挖掘以及如何用 seedance2.0 复刻出一条 40 秒真人爆款视频》· 精华帖</div>
+    <div class="cb"><b>核心贡献：</b><b>Seedance 2.0 导演提示词 v5.1（含 5 条铁律，三幕式创作协议）</b>、分镜表格化输出格式、角色三视图提示词、版权/人脸审核两级降级方案、分镜时长基准（0.5-1.5 秒）、删多余镜头两标准、补音效、<b>分镜必须逐镜核对剧情</b>、爆款 IP 挖掘三渠道、脚本四条红线</div>
+    <span class="nolink">出处：生财有术站内精华帖（原文链接已隐去）</span></div>
+
+  <div class="src"><div class="top"><span class="nm">圈友08 / 圈友09 / 圈友14 / 圈友17 / 圈友18 / 圈友19</span><span class="st">补充来源</span></div>
+    <div class="cb"><b>圈友08</b>（爆率45%）：前三秒信息密度、后期精调清单 ｜ <b>圈友09</b>（40+账号月入万刀）：开头高端+中后段便宜模型的混搭成本策略、1.5倍速、继续观看低=开头不行 ｜ <b>圈友14</b>（1.5亿+播放）：黄金三秒视觉张力、光线充足饱和度高、情绪推进&gt;逻辑自洽 ｜ <b>圈友17</b>（一周开两YPP）：关键帧固定风格基调与前三秒情绪张力 ｜ <b>圈友18</b>（月入万刀）：视角/景别/运镜/人物位置描述清楚画面张力就好 ｜ <b>圈友19</b>：分镜生成四步（首帧图→提示词→选模型比例时长→生成）</div></div>
+</section>
+
+<footer class="foot">
+  <img src="assets/logo.png" alt="马哥赢创">
+  <div class="fn">马哥赢创</div>
+  <div class="fs">想法落地 · 价值倍增</div>
+  <p>《AIGC 视觉奇观开头实操手册》· 第二册 ｜ 资料检索自生财有术 12 位 AI 视频实战派精华帖 + 官方航海手册《AI 高质感视频》全 7 关</p>
+  <p>所有观点、提示词与数据均标注原始出处，可点击链接回溯查证。AI 模型能力与平台政策变动极快（以月度计），涉及模型选型、积分价格、平台分账政策的部分，动手前请重新核对官方最新公告。</p>
+  <p style="margin-top:10px">本手册为内部学习资料，不构成任何收益承诺。结果取决于执行时间、内容质量与复盘优化。</p>
+</footer>
+
+</main>
+</div>
+
+<div class="tweaks">
+  <div class="twpanel" id="twPanel">
+    <div class="th">TWEAKS</div>
+    <div class="twrow"><span>字号</span>
+      <div class="seg"><button data-fs="s">小</button><button data-fs="m">中</button><button data-fs="l">大</button></div>
+    </div>
+    <div class="twrow"><span>马哥说</span><button class="sw on" data-say aria-label="切换马哥说"></button></div>
+    <div class="twrow"><span>清单进度</span><button class="twlink" data-reset>重置</button></div>
+  </div>
+  <button class="twbtn" id="twBtn" title="阅读设置" aria-label="阅读设置">⚙</button>
+  <button class="twbtn" id="topBtn" title="回到顶部" aria-label="回到顶部">↑</button>
+</div>
+
+<script src="assets/mage-manual.js"></script>
+</body>
+</html>
